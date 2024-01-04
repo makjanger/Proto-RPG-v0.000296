@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b7kcpxmsl7jjb"]
+
+[ext_resource type="Script" path="res://data/scripts/states/hurt_state.gd" id="1_0xkrf"]
+
+[node name="HurtState" type="Node" node_paths=PackedStringArray("master_node")]
+script = ExtResource("1_0xkrf")
+master_node = NodePath("")

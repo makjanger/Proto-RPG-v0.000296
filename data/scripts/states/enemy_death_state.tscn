@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://by73f2rig0gk8"]
+
+[ext_resource type="Script" path="res://data/scripts/states/enemy_death_state.gd" id="1_7d55i"]
+
+[node name="EnemyDeathState" type="Node" node_paths=PackedStringArray("master_node")]
+script = ExtResource("1_7d55i")
+master_node = NodePath("")

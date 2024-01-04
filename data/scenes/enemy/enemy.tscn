@@ -1,0 +1,184 @@
+[gd_scene load_steps=20 format=3 uid="uid://dlidi50l2a8vf"]
+
+[ext_resource type="Script" path="res://data/scenes/enemy/enemy.gd" id="1_3oemn"]
+[ext_resource type="Texture2D" uid="uid://d0xa37jkc1q5j" path="res://data/sprites/tilemap_packed.png" id="1_htmft"]
+[ext_resource type="Resource" uid="uid://c0byj2l3xls2y" path="res://data/scenes/enemy/enemy_stats.tres" id="2_kjuwe"]
+[ext_resource type="PackedScene" uid="uid://bu3xcafdk0qmn" path="res://data/scenes/arrow/arrow.tscn" id="3_6fcjn"]
+[ext_resource type="Script" path="res://data/scenes/enemy/AnimationPlayer.gd" id="4_d3h1b"]
+[ext_resource type="PackedScene" uid="uid://du0ma3240uilh" path="res://data/scripts/states/enemy_state_machine.tscn" id="5_hjij1"]
+[ext_resource type="Script" path="res://data/scripts/states/enemy_state_machine.gd" id="6_hanwb"]
+[ext_resource type="PackedScene" uid="uid://s8jjomwj1kgg" path="res://data/scripts/states/enemy_idle_state.tscn" id="7_uasi1"]
+[ext_resource type="Script" path="res://data/scripts/states/enemy_idle_state.gd" id="8_p8s6x"]
+[ext_resource type="PackedScene" uid="uid://dfpjuncoqbd8o" path="res://data/scripts/states/enemy_select_state.tscn" id="9_l0s2o"]
+[ext_resource type="PackedScene" uid="uid://dpntjx78a3vbq" path="res://data/scripts/states/enemy_attack_state.tscn" id="10_l6ylh"]
+[ext_resource type="Script" path="res://data/scripts/states/enemy_select_state.gd" id="10_uoi5n"]
+[ext_resource type="PackedScene" uid="uid://dmig7yfi1bt02" path="res://data/scripts/states/enemy_hurt_state.tscn" id="11_rjeul"]
+[ext_resource type="PackedScene" uid="uid://by73f2rig0gk8" path="res://data/scripts/states/enemy_death_state.tscn" id="12_j5dm6"]
+
+[sub_resource type="Animation" id="Animation_5grwm"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_qp2wu"]
+resource_name = "death"
+length = 1.5
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2, 0.25, 0.3, 0.35, 0.4, 0.45, 0.5, 0.55, 0.6, 0.65, 0.7, 0.75, 0.8, 0.85, 0.9, 0.95, 1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(-5, -16), Vector2(5, -16), Vector2(-5, -16), Vector2(5, -16), Vector2(-5, -16), Vector2(5, -16), Vector2(-5, -16), Vector2(5, -16), Vector2(-5, -16), Vector2(5, -16), Vector2(-5, -16), Vector2(5, -16), Vector2(-5, -16), Vector2(5, -16), Vector2(-5, -16), Vector2(5, -16), Vector2(-5, -16), Vector2(5, -16), Vector2(-5, -16), Vector2(5, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 0, 0, 1), Color(1, 0, 0, 0), Color(1, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_doukw"]
+resource_name = "hurt"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1), Color(1, 0, 0, 1), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_iwbh0"]
+resource_name = "idle"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.3, 0.4),
+"transitions": PackedFloat32Array(-2, 0.5, -2, 2),
+"update": 0,
+"values": [Vector2(0, -16), Vector2(4, -16), Vector2(-4, -16), Vector2(0, -16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_e5ka7"]
+_data = {
+"RESET": SubResource("Animation_5grwm"),
+"death": SubResource("Animation_qp2wu"),
+"hurt": SubResource("Animation_doukw"),
+"idle": SubResource("Animation_iwbh0")
+}
+
+[node name="Enemy" type="Node2D" node_paths=PackedStringArray("state_machine", "sprite", "anim_player", "arrow", "health_bar") groups=["enemy"]]
+script = ExtResource("1_3oemn")
+stats = ExtResource("2_kjuwe")
+state_machine = NodePath("EnemyStateMachine")
+sprite = NodePath("Sprite2D")
+anim_player = NodePath("AnimationPlayer")
+arrow = NodePath("Arrow")
+health_bar = NodePath("UI/HealthBar")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
+position = Vector2(0, -16)
+scale = Vector2(2, 2)
+texture = ExtResource("1_htmft")
+region_enabled = true
+region_rect = Rect2(16, 160, 16, 16)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_e5ka7")
+}
+script = ExtResource("4_d3h1b")
+
+[node name="Arrow" parent="." instance=ExtResource("3_6fcjn")]
+unique_name_in_owner = true
+position = Vector2(0, -46)
+
+[node name="UI" type="Control" parent="."]
+custom_minimum_size = Vector2(62, 75)
+layout_mode = 3
+anchors_preset = 0
+offset_left = -31.0
+offset_top = -75.0
+offset_right = 31.0
+
+[node name="HealthBar" type="ProgressBar" parent="UI"]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_top = -2.0
+offset_bottom = 2.0
+grow_horizontal = 2
+grow_vertical = 2
+show_percentage = false
+
+[node name="EnemyStateMachine" parent="." node_paths=PackedStringArray("master_node", "initial_state") instance=ExtResource("5_hjij1")]
+script = ExtResource("6_hanwb")
+master_node = NodePath("..")
+initial_state = NodePath("EnemyIdleState")
+
+[node name="EnemyIdleState" parent="EnemyStateMachine" node_paths=PackedStringArray("master_node") instance=ExtResource("7_uasi1")]
+script = ExtResource("8_p8s6x")
+master_node = NodePath("../..")
+
+[node name="EnemySelectState" parent="EnemyStateMachine" node_paths=PackedStringArray("master_node") instance=ExtResource("9_l0s2o")]
+script = ExtResource("10_uoi5n")
+master_node = NodePath("../..")
+
+[node name="EnemyAttackState" parent="EnemyStateMachine" node_paths=PackedStringArray("master_node") instance=ExtResource("10_l6ylh")]
+master_node = NodePath("../..")
+
+[node name="EnemyHurtState" parent="EnemyStateMachine" node_paths=PackedStringArray("master_node") instance=ExtResource("11_rjeul")]
+master_node = NodePath("../..")
+
+[node name="EnemyDeathState" parent="EnemyStateMachine" node_paths=PackedStringArray("master_node") instance=ExtResource("12_j5dm6")]
+master_node = NodePath("../..")

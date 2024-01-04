@@ -1,0 +1,79 @@
+[gd_scene load_steps=6 format=3 uid="uid://bu3xcafdk0qmn"]
+
+[ext_resource type="Script" path="res://data/scenes/arrow/arrow.gd" id="1_7xa5s"]
+[ext_resource type="Texture2D" uid="uid://7k8bi64jacvs" path="res://data/sprites/BasicArrow.png" id="1_l4fnw"]
+
+[sub_resource type="Animation" id="Animation_vlfw4"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -9)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_7w8ox"]
+resource_name = "idle"
+length = 0.7
+loop_mode = 1
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(2, -2, 2, -2),
+"update": 0,
+"values": [Vector2(0, -9), Vector2(0, -16), Vector2(0, -18), Vector2(0, -5)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6),
+"transitions": PackedFloat32Array(0.5, -2, 2, -2),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1, 1.1), Vector2(1, 1), Vector2(1, 0.55)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ahi47"]
+_data = {
+"RESET": SubResource("Animation_vlfw4"),
+"idle": SubResource("Animation_7w8ox")
+}
+
+[node name="Arrow" type="Node2D"]
+script = ExtResource("1_7xa5s")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -9)
+texture = ExtResource("1_l4fnw")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_ahi47")
+}

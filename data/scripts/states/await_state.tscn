@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://dg6lyhbvxf01t"]
+
+[ext_resource type="Script" path="res://data/scripts/states/await_state.gd" id="1_nek34"]
+
+[node name="AwaitState" type="Node" node_paths=PackedStringArray("master_node")]
+script = ExtResource("1_nek34")
+master_node = NodePath("")

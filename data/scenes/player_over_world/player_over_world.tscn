@@ -1,0 +1,24 @@
+[gd_scene load_steps=5 format=3 uid="uid://dspnjkvmreh78"]
+
+[ext_resource type="Texture2D" uid="uid://d0xa37jkc1q5j" path="res://data/sprites/tilemap_packed.png" id="1_rq6f4"]
+[ext_resource type="Script" path="res://data/scenes/player_over_world/player_over_world.gd" id="1_t6lej"]
+[ext_resource type="Resource" uid="uid://bw6vsbn27l1q6" path="res://data/scenes/player_over_world/player_over_world_stats.tres" id="2_wsvyx"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3u03j"]
+size = Vector2(32, 20)
+
+[node name="PlayerOverWorld" type="CharacterBody2D" groups=["active_player_party"]]
+script = ExtResource("1_t6lej")
+stats = ExtResource("2_wsvyx")
+player_battle = "res://data/scenes/player/player.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -16)
+scale = Vector2(2, 2)
+texture = ExtResource("1_rq6f4")
+region_enabled = true
+region_rect = Rect2(0, 128, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("RectangleShape2D_3u03j")

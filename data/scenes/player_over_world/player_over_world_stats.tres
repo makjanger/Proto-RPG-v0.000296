@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=2 format=3 uid="uid://bw6vsbn27l1q6"]
+
+[ext_resource type="Script" path="res://data/scripts/resources/player_stats.gd" id="1_8qnsb"]
+
+[resource]
+script = ExtResource("1_8qnsb")
+level = 1
+experience = 0
+max_experience = 100
+name = "Jack"
+health = 100
+max_health = 100
+strength = 10
+agility = 10
+intelligence = 10

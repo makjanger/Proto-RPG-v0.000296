@@ -1,0 +1,124 @@
+[gd_scene load_steps=6 format=3 uid="uid://mg1unsitn8ci"]
+
+[ext_resource type="Script" path="res://data/scenes/battle/battle.gd" id="1_jrgxh"]
+[ext_resource type="PackedScene" uid="uid://dlidi50l2a8vf" path="res://data/scenes/enemy/enemy.tscn" id="3_k4aol"]
+[ext_resource type="Script" path="res://data/scripts/resources/enemy_stats.gd" id="4_ttphm"]
+
+[sub_resource type="Resource" id="Resource_uob6m"]
+resource_local_to_scene = true
+script = ExtResource("4_ttphm")
+experience_points = 50
+name = "Enemy"
+health = 100
+max_health = 100
+strength = 1
+agility = 1
+intelligence = 1
+
+[sub_resource type="Resource" id="Resource_0k5ye"]
+resource_local_to_scene = true
+script = ExtResource("4_ttphm")
+experience_points = 50
+name = "Enemy"
+health = 100
+max_health = 100
+strength = 1
+agility = 1
+intelligence = 1
+
+[node name="Battle" type="Node2D"]
+script = ExtResource("1_jrgxh")
+
+[node name="PlayerPositions" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="PlayerPos1" type="Marker2D" parent="PlayerPositions"]
+position = Vector2(231, 223)
+
+[node name="PlayerPos2" type="Marker2D" parent="PlayerPositions"]
+position = Vector2(149, 223)
+
+[node name="PlayerPos3" type="Marker2D" parent="PlayerPositions"]
+position = Vector2(57, 223)
+
+[node name="EnemyPositions" type="Node2D" parent="."]
+unique_name_in_owner = true
+
+[node name="EnemyPos1" type="Marker2D" parent="EnemyPositions"]
+position = Vector2(398, 223)
+
+[node name="Enemy" parent="EnemyPositions/EnemyPos1" node_paths=PackedStringArray("state_machine", "sprite", "anim_player", "arrow", "health_bar") instance=ExtResource("3_k4aol")]
+stats = SubResource("Resource_uob6m")
+state_machine = NodePath("EnemyStateMachine")
+sprite = NodePath("Sprite2D")
+anim_player = NodePath("AnimationPlayer")
+arrow = NodePath("Arrow")
+health_bar = NodePath("UI/HealthBar")
+
+[node name="EnemyPos2" type="Marker2D" parent="EnemyPositions"]
+position = Vector2(490, 223)
+
+[node name="EnemyPos3" type="Marker2D" parent="EnemyPositions"]
+position = Vector2(572, 223)
+
+[node name="Enemy" parent="EnemyPositions/EnemyPos3" node_paths=PackedStringArray("state_machine", "sprite", "anim_player", "arrow", "health_bar") instance=ExtResource("3_k4aol")]
+stats = SubResource("Resource_0k5ye")
+state_machine = NodePath("EnemyStateMachine")
+sprite = NodePath("Sprite2D")
+anim_player = NodePath("AnimationPlayer")
+arrow = NodePath("Arrow")
+health_bar = NodePath("UI/HealthBar")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="BattleUI" type="Control" parent="CanvasLayer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/BattleUI"]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/BattleUI/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="MainMenuContainer" type="HBoxContainer" parent="CanvasLayer/BattleUI/PanelContainer/MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AttackButton" type="Button" parent="CanvasLayer/BattleUI/PanelContainer/MarginContainer/MainMenuContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(102, 56)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "ATTACK"
+
+[node name="MagicButton" type="Button" parent="CanvasLayer/BattleUI/PanelContainer/MarginContainer/MainMenuContainer"]
+custom_minimum_size = Vector2(102, 56)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "MAGIC"
+
+[node name="EscapeButton" type="Button" parent="CanvasLayer/BattleUI/PanelContainer/MarginContainer/MainMenuContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(102, 56)
+layout_mode = 2
+size_flags_horizontal = 0
+text = "ESCAPE"
+
+[connection signal="button_down" from="CanvasLayer/BattleUI/PanelContainer/MarginContainer/MainMenuContainer/AttackButton" to="." method="_on_attack_button_pressed"]
+[connection signal="button_down" from="CanvasLayer/BattleUI/PanelContainer/MarginContainer/MainMenuContainer/EscapeButton" to="." method="_on_escape_button_button_down"]

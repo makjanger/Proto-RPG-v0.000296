@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://cwdfpyqkns3ys"]
+[gd_scene load_steps=8 format=3 uid="uid://cwdfpyqkns3ys"]
 
 [ext_resource type="PackedScene" uid="uid://dspnjkvmreh78" path="res://data/scenes/player_over_world/player_over_world.tscn" id="1_f5bic"]
 [ext_resource type="Script" path="res://data/scenes/main/main.gd" id="1_jk7te"]
 [ext_resource type="Texture2D" uid="uid://d0xa37jkc1q5j" path="res://data/sprites/tilemap_packed.png" id="2_4qigx"]
 [ext_resource type="Script" path="res://data/scenes/main/Buddy.gd" id="2_sk0hv"]
+[ext_resource type="Resource" uid="uid://bagcj6pkmvjnf" path="res://data/scenes/player2/player_2_stats.tres" id="3_hkvad"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hv0cn"]
 texture = ExtResource("2_4qigx")
@@ -427,8 +428,9 @@ process_mode = 1
 
 [node name="PartyEntity" type="Node" parent="Level"]
 
-[node name="Buddy" type="Node" parent="Level/PartyEntity" groups=["active_player_party"]]
+[node name="Buddy" type="CharacterBody2D" parent="Level/PartyEntity" groups=["active_player_party"]]
 script = ExtResource("2_sk0hv")
+stats = ExtResource("3_hkvad")
 player_battle = "res://data/scenes/player2/player_2.tscn"
 
 [node name="TileMap" type="TileMap" parent="Level"]

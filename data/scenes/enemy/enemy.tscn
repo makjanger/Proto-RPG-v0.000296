@@ -1,10 +1,9 @@
-[gd_scene load_steps=20 format=3 uid="uid://dlidi50l2a8vf"]
+[gd_scene load_steps=19 format=3 uid="uid://dlidi50l2a8vf"]
 
 [ext_resource type="Script" path="res://data/scenes/enemy/enemy.gd" id="1_3oemn"]
 [ext_resource type="Texture2D" uid="uid://d0xa37jkc1q5j" path="res://data/sprites/tilemap_packed.png" id="1_htmft"]
 [ext_resource type="Resource" uid="uid://c0byj2l3xls2y" path="res://data/scenes/enemy/enemy_stats.tres" id="2_kjuwe"]
 [ext_resource type="PackedScene" uid="uid://bu3xcafdk0qmn" path="res://data/scenes/arrow/arrow.tscn" id="3_6fcjn"]
-[ext_resource type="Script" path="res://data/scenes/enemy/AnimationPlayer.gd" id="4_d3h1b"]
 [ext_resource type="PackedScene" uid="uid://du0ma3240uilh" path="res://data/scripts/states/enemy_state_machine.tscn" id="5_hjij1"]
 [ext_resource type="Script" path="res://data/scripts/states/enemy_state_machine.gd" id="6_hanwb"]
 [ext_resource type="PackedScene" uid="uid://s8jjomwj1kgg" path="res://data/scripts/states/enemy_idle_state.tscn" id="7_uasi1"]
@@ -134,7 +133,6 @@ unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_e5ka7")
 }
-script = ExtResource("4_d3h1b")
 
 [node name="Arrow" parent="." instance=ExtResource("3_6fcjn")]
 unique_name_in_owner = true

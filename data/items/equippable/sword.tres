@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c7426is8143i1"]
+
+[ext_resource type="Script" path="res://data/scripts/resources/item.gd" id="1_am8iu"]
+[ext_resource type="Texture2D" uid="uid://cutn4y8tqso0b" path="res://data/sprites/knife.png" id="2_5fpnv"]
+
+[resource]
+script = ExtResource("1_am8iu")
+texture = ExtResource("2_5fpnv")
+item_name = "Knife"
+item_desc = "Damage + 10"
+item_type = 1

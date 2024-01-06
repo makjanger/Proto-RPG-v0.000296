@@ -1,9 +1,9 @@
 [gd_scene load_steps=19 format=3 uid="uid://dlidi50l2a8vf"]
 
 [ext_resource type="Script" path="res://data/scenes/enemy/enemy.gd" id="1_3oemn"]
-[ext_resource type="Texture2D" uid="uid://d0xa37jkc1q5j" path="res://data/sprites/tilemap_packed.png" id="1_htmft"]
 [ext_resource type="Resource" uid="uid://c0byj2l3xls2y" path="res://data/scenes/enemy/enemy_stats.tres" id="2_kjuwe"]
 [ext_resource type="PackedScene" uid="uid://bu3xcafdk0qmn" path="res://data/scenes/arrow/arrow.tscn" id="3_6fcjn"]
+[ext_resource type="Texture2D" uid="uid://dal8bq0xkv4i6" path="res://data/sprites/ghost.png" id="3_aapex"]
 [ext_resource type="PackedScene" uid="uid://du0ma3240uilh" path="res://data/scripts/states/enemy_state_machine.tscn" id="5_hjij1"]
 [ext_resource type="Script" path="res://data/scripts/states/enemy_state_machine.gd" id="6_hanwb"]
 [ext_resource type="PackedScene" uid="uid://s8jjomwj1kgg" path="res://data/scripts/states/enemy_idle_state.tscn" id="7_uasi1"]
@@ -123,9 +123,7 @@ health_bar = NodePath("UI/HealthBar")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
 position = Vector2(0, -16)
-scale = Vector2(2, 2)
-texture = ExtResource("1_htmft")
-region_enabled = true
+texture = ExtResource("3_aapex")
 region_rect = Rect2(16, 160, 16, 16)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

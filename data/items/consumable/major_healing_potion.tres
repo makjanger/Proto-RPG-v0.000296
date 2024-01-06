@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://t0gp7gki565e"]
+
+[ext_resource type="Script" path="res://data/scripts/resources/item.gd" id="1_kmp5s"]
+[ext_resource type="Texture2D" uid="uid://c4ixw8nt4ghps" path="res://data/sprites/major_red_potion.png" id="2_q7sp3"]
+
+[resource]
+script = ExtResource("1_kmp5s")
+texture = ExtResource("2_q7sp3")
+item_name = "Major Healing Potion"
+item_desc = "Heals for 30HP"
+item_type = 0

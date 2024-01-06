@@ -1,0 +1,618 @@
+[gd_scene load_steps=13 format=3 uid="uid://b5v8ribuev283"]
+
+[ext_resource type="Theme" uid="uid://dkvujhxwpd066" path="res://data/themes/default_theme.tres" id="1_3gyfq"]
+[ext_resource type="Script" path="res://data/scenes/UI/main_ui.gd" id="1_ng8gf"]
+[ext_resource type="PackedScene" uid="uid://c2sa6kr5x4kca" path="res://data/scenes/UI/item_slot_1.tscn" id="2_31cvn"]
+[ext_resource type="Texture2D" uid="uid://cfq0luah1mtgh" path="res://data/sprites/GreyX.png" id="4_dmihj"]
+
+[sub_resource type="Animation" id="Animation_c5mef"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BaseMenuContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InventoryContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(118, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InventoryContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("StatsContainer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(118, 4)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StatsContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StatsContainer:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(518, 352)]
+}
+
+[sub_resource type="Animation" id="Animation_yurui"]
+resource_name = "hide_base_menu"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BaseMenuContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(-114, 4)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BaseMenuContainer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_mone0"]
+resource_name = "hide_inventory_menu"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InventoryContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(118, 4), Vector2(128, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InventoryContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InventoryContainer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"main_buttons_focus_controller"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/InventoryButton")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"grab_focus"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_fb8yu"]
+resource_name = "hide_stats_menu"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StatsContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(118, 4), Vector2(128, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StatsContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StatsContainer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.2),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"main_buttons_focus_controller"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/StatsButton")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"grab_focus"
+}]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("StatsContainer:size")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(518, 352), Vector2(518, 352)]
+}
+
+[sub_resource type="Animation" id="Animation_bj8jk"]
+resource_name = "show_base_menu"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("BaseMenuContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(-114, 4), Vector2(4, 4)]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("BaseMenuContainer")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show"
+}]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/ResumeButton")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"grab_focus"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_iw8m5"]
+resource_name = "show_inventory_menu"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InventoryContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(128, 4), Vector2(118, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InventoryContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("InventoryContainer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"main_buttons_focus_controller"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_xkj4g"]
+resource_name = "show_stats_menu"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("StatsContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(128, 4), Vector2(118, 4)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StatsContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("StatsContainer")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("%AnimationPlayer/..")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"main_buttons_focus_controller"
+}]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StatsContainer:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(518, 352), Vector2(518, 352)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6vqca"]
+_data = {
+"RESET": SubResource("Animation_c5mef"),
+"hide_base_menu": SubResource("Animation_yurui"),
+"hide_inventory_menu": SubResource("Animation_mone0"),
+"hide_stats_menu": SubResource("Animation_fb8yu"),
+"show_base_menu": SubResource("Animation_bj8jk"),
+"show_inventory_menu": SubResource("Animation_iw8m5"),
+"show_stats_menu": SubResource("Animation_xkj4g")
+}
+
+[node name="MainUI" type="Control"]
+process_mode = 2
+custom_minimum_size = Vector2(640, 360)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_3gyfq")
+script = ExtResource("1_ng8gf")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_6vqca")
+}
+
+[node name="BaseMenuContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(110, 179)
+layout_mode = 0
+offset_left = 4.0
+offset_top = 4.0
+offset_right = 114.0
+offset_bottom = 183.0
+
+[node name="BaseMenuMargin" type="MarginContainer" parent="BaseMenuContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="BaseMenuVbox" type="VBoxContainer" parent="BaseMenuContainer/BaseMenuMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="ResumeButton" type="Button" parent="BaseMenuContainer/BaseMenuMargin/BaseMenuVbox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_top = NodePath("../ExitButton")
+text = "RESUME"
+
+[node name="InventoryButton" type="Button" parent="BaseMenuContainer/BaseMenuMargin/BaseMenuVbox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "INVENTORY"
+
+[node name="StatsButton" type="Button" parent="BaseMenuContainer/BaseMenuMargin/BaseMenuVbox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "STATS"
+
+[node name="OptionButton" type="Button" parent="BaseMenuContainer/BaseMenuMargin/BaseMenuVbox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "OPTION"
+
+[node name="ExitButton" type="Button" parent="BaseMenuContainer/BaseMenuMargin/BaseMenuVbox"]
+unique_name_in_owner = true
+layout_mode = 2
+focus_neighbor_bottom = NodePath("../ResumeButton")
+text = "EXIT"
+
+[node name="InventoryContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+visible = false
+layout_mode = 0
+offset_left = 118.0
+offset_top = 4.0
+offset_right = 298.0
+offset_bottom = 140.0
+
+[node name="InventoryMargin" type="MarginContainer" parent="InventoryContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="InventoryGrid" type="GridContainer" parent="InventoryContainer/InventoryMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+columns = 4
+
+[node name="ItemSlot1" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+layout_mode = 2
+disable_tex = ExtResource("4_dmihj")
+
+[node name="ItemSlot2" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+layout_mode = 2
+disable_tex = ExtResource("4_dmihj")
+
+[node name="ItemSlot3" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+layout_mode = 2
+disable_tex = ExtResource("4_dmihj")
+
+[node name="ItemSlot4" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+layout_mode = 2
+disable_tex = ExtResource("4_dmihj")
+
+[node name="ItemSlot5" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+layout_mode = 2
+disable_tex = ExtResource("4_dmihj")
+disable = true
+
+[node name="ItemSlot6" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+layout_mode = 2
+disable_tex = ExtResource("4_dmihj")
+disable = true
+
+[node name="ItemSlot7" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+layout_mode = 2
+disable_tex = ExtResource("4_dmihj")
+disable = true
+
+[node name="ItemSlot8" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+layout_mode = 2
+disable_tex = ExtResource("4_dmihj")
+disable = true
+
+[node name="ItemSlot9" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+layout_mode = 2
+disable_tex = ExtResource("4_dmihj")
+disable = true
+
+[node name="ItemSlot10" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+layout_mode = 2
+disable_tex = ExtResource("4_dmihj")
+disable = true
+
+[node name="ItemSlot11" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+layout_mode = 2
+disable_tex = ExtResource("4_dmihj")
+disable = true
+
+[node name="ItemSlot12" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+layout_mode = 2
+disable_tex = ExtResource("4_dmihj")
+disable = true
+
+[node name="StatsContainer" type="PanelContainer" parent="."]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(518, 352)
+layout_mode = 0
+anchor_left = 0.184375
+anchor_top = 0.0111111
+anchor_right = 0.99375
+anchor_bottom = 0.988889
+offset_left = 118.0
+offset_top = 4.0
+offset_right = 636.0
+offset_bottom = 356.0
+metadata/_edit_use_anchors_ = true
+
+[node name="StatsMargin" type="MarginContainer" parent="StatsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="StatsVbox" type="VBoxContainer" parent="StatsContainer/StatsMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[connection signal="button_down" from="BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/ResumeButton" to="." method="_on_resume_button_button_down"]
+[connection signal="button_down" from="BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/InventoryButton" to="." method="_on_inventory_button_button_down"]
+[connection signal="button_down" from="BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/StatsButton" to="." method="_on_stats_button_button_down"]
+[connection signal="button_down" from="BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/OptionButton" to="." method="_on_option_button_button_down"]
+[connection signal="button_down" from="BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/ExitButton" to="." method="_on_exit_button_button_down"]

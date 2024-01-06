@@ -2,6 +2,7 @@ class_name BaseStats
 extends Resource
 
 
+@export var sprite: Texture
 @export var name: String = "???"
 
 @export var health: int = 100

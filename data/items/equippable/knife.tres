@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://d3tawphitrcbx"]
+
+[ext_resource type="Script" path="res://data/scripts/resources/item.gd" id="1_pjjbg"]
+[ext_resource type="Texture2D" uid="uid://lfd28dko4bgh" path="res://data/sprites/minor_red_potion.png" id="2_88ghn"]
+
+[resource]
+script = ExtResource("1_pjjbg")
+texture = ExtResource("2_88ghn")
+item_name = "Minor Healing Potion"
+item_desc = "Heals for 10HP"
+item_type = 0

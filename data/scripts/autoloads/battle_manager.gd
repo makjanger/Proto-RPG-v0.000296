@@ -25,8 +25,19 @@ func reset_action_token() -> void:
 
 
 func end_battle() -> void:
+	printerr("BATTLE OVER!")
 	is_battle_over = true
+	assign_experience()
 	SceneStacker.pop()
+
+
+func assign_experience() -> void:
+	var player_party := get_tree().get_nodes_in_group("player")
+
+	for member: Player in player_party:
+		member.stats.experience += total_exp
+	
+	total_exp = 0
 
 
 func on_enemy_dies(enemy: Enemy) -> void:

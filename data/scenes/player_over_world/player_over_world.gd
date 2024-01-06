@@ -10,12 +10,12 @@ var direction: Vector2
 
 
 func _physics_process(_delta: float) -> void:
-    
-    direction = Input.get_vector("left", "right", "up", "down")
+	
+	direction = Input.get_vector("left", "right", "up", "down")
 
-    velocity.x = move_toward(velocity.x, direction.x * SPEED, FRICTION)
-    velocity.y = move_toward(velocity.y, direction.y * SPEED, FRICTION)
+	velocity.x = move_toward(velocity.x, direction.x * SPEED, FRICTION)
+	velocity.y = move_toward(velocity.y, direction.y * SPEED, FRICTION)
 
-    move_and_slide()
+	move_and_slide()
 
 

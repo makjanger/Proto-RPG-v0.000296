@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="PlayerStats" load_steps=2 format=3 uid="uid://bw6vsbn27l1q6"]
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=3 format=3 uid="uid://bw6vsbn27l1q6"]
 
 [ext_resource type="Script" path="res://data/scripts/resources/player_stats.gd" id="1_8qnsb"]
+[ext_resource type="Texture2D" uid="uid://rryn27gbq33x" path="res://data/sprites/knight_covered.png" id="2_wu3ql"]
 
 [resource]
 script = ExtResource("1_8qnsb")
 level = 1
 experience = 0
 max_experience = 100
+sprite = ExtResource("2_wu3ql")
 name = "Jack"
 health = 100
 max_health = 100

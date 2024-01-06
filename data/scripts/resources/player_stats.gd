@@ -8,9 +8,11 @@ extends BaseStats
 
 
 func set_level(new_level: int) -> void:
+    if level == new_level: return
+    
     level = new_level
-    max_experience += roundi(max_experience * 1.1)
-
+    max_experience = roundi(max_experience * 1.1)
+    
     strength += 1
     agility += 1
     intelligence += 1
@@ -19,7 +21,9 @@ func set_level(new_level: int) -> void:
 
 
 func set_experience(new_experience: int) -> void:
-    experience = new_experience
+    if experience == new_experience: return
+    
+    experience += new_experience
     if experience >= max_experience:
         experience = 0
         level += 1

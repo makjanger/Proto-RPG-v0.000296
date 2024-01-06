@@ -3,13 +3,10 @@ extends EnemyStateMachine
 
 func ai_commands() -> void:
 	match master_node.anim_player.current_animation:
-		"hurt":
-			await master_node.anim_player.animation_finished
-			current_state.transition_to.emit(current_state, "EnemySelectState")
-		"death":
-			await master_node.anim_player.animation_finished
+		"idle":
 			current_state.transition_to.emit(current_state, "EnemySelectState")
 		_:
+			await master_node.anim_player.animation_finished
 			current_state.transition_to.emit(current_state, "EnemySelectState")
 
 

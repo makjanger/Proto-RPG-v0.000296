@@ -2,7 +2,12 @@
 extends Node
 
 
+signal check_stats()
+
+
 var player_party := []
+
+var is_game_paused:= false
 
 
 func _ready() -> void:

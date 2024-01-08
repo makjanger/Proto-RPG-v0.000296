@@ -6,6 +6,10 @@
 [resource]
 script = ExtResource("1_xvimg")
 texture = ExtResource("2_j1wvj")
-item_name = "Minor Healing Potion"
-item_desc = "Heals for 10HP"
-item_type = 0
+name = "Minor Healing Potion"
+description = "HP + 10"
+type = 0
+effect = 0
+effect_strength = 10
+amount = 3
+stackable = true

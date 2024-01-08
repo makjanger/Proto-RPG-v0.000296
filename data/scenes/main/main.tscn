@@ -450,4 +450,3 @@ position = Vector2(309, 184)
 script = ExtResource("6_ftnot")
 
 [node name="MainUI" parent="UILayer" instance=ExtResource("6_yau4f")]
-unique_name_in_owner = true

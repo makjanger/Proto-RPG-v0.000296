@@ -1,64 +1,65 @@
-[gd_scene load_steps=13 format=3 uid="uid://b5v8ribuev283"]
+[gd_scene load_steps=20 format=3 uid="uid://b5v8ribuev283"]
 
 [ext_resource type="Theme" uid="uid://dkvujhxwpd066" path="res://data/themes/default_theme.tres" id="1_3gyfq"]
 [ext_resource type="Script" path="res://data/scenes/UI/main_ui.gd" id="1_ng8gf"]
 [ext_resource type="PackedScene" uid="uid://c2sa6kr5x4kca" path="res://data/scenes/UI/item_slot_1.tscn" id="2_31cvn"]
-[ext_resource type="Texture2D" uid="uid://cfq0luah1mtgh" path="res://data/sprites/GreyX.png" id="4_dmihj"]
+[ext_resource type="Resource" uid="uid://d4b2rtd4cvxti" path="res://data/items/consumable/minor_healing_potion.tres" id="5_6scwg"]
+[ext_resource type="Texture2D" uid="uid://8x46kb6147gb" path="res://icon.svg" id="5_aacuh"]
 
 [sub_resource type="Animation" id="Animation_c5mef"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BaseMenuContainer:position")
+tracks/0/path = NodePath("BaseMenu/BaseMenuContainer:size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(4, 4)]
+"values": [Vector2(110, 179)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("InventoryContainer:position")
+tracks/1/path = NodePath("Inventory/InventoryContainer:size")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(118, 4)]
+"values": [Vector2(180, 136)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("InventoryContainer:modulate")
+tracks/2/path = NodePath("Stats/StatsContainer:size")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Color(1, 1, 1, 1)]
+"values": [Vector2(518, 352)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("StatsContainer:position")
+tracks/3/path = NodePath("BaseMenu/BaseMenuContainer:modulate")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(118, 4)]
+"values": [Color(1, 1, 1, 1)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("StatsContainer:modulate")
+tracks/4/path = NodePath("Inventory/InventoryContainer:modulate")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -70,14 +71,86 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("StatsContainer:size")
+tracks/5/path = NodePath("Stats/StatsContainer:modulate")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(518, 352)]
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("BaseMenu/BaseMenuContainer:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Inventory/InventoryContainer:position")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Stats/StatsContainer:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("ItemDescription/ItemDescriptionlContainer:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("ItemDescription/ItemDescriptionlContainer:modulate")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("ItemDescription/ItemDescriptionlContainer:size")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(334, 136)]
 }
 
 [sub_resource type="Animation" id="Animation_yurui"]
@@ -86,19 +159,19 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BaseMenuContainer:position")
+tracks/0/path = NodePath("BaseMenu/BaseMenuContainer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(4, 4), Vector2(-114, 4)]
+"values": [Vector2(0, 0), Vector2(-118, 0)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BaseMenuContainer")
+tracks/1/path = NodePath("BaseMenu")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -106,7 +179,7 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"hide"
+"method": &"show"
 }]
 }
 
@@ -116,19 +189,19 @@ length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("InventoryContainer:position")
+tracks/0/path = NodePath("Inventory/InventoryContainer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(118, 4), Vector2(128, 4)]
+"values": [Vector2(0, 0), Vector2(10, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("InventoryContainer:modulate")
+tracks/1/path = NodePath("Inventory/InventoryContainer:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -140,7 +213,77 @@ tracks/1/keys = {
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("InventoryContainer")
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [true],
+"method": &"main_buttons_focus_controller"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BaseMenu/BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/InventoryButton")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"grab_focus"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Inventory")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_ewn5u"]
+resource_name = "hide_item_description"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ItemDescription/ItemDescriptionlContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(10, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemDescription/ItemDescriptionlContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ItemDescription")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -151,32 +294,84 @@ tracks/2/keys = {
 "method": &"hide"
 }]
 }
-tracks/3/type = "method"
+tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".")
+tracks/3/path = NodePath("ItemDescription/ItemDescriptionlContainer:size")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(334, 136), Vector2(334, 136)]
+}
+
+[sub_resource type="Animation" id="Animation_qy3wo"]
+resource_name = "hide_stats_in_inventory"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Stats/StatsContainer:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(518, 212), Vector2(518, 212)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Stats/StatsContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(2, 1),
+"update": 0,
+"values": [Vector2(0, 140), Vector2(0, 150)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Stats/StatsContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Stats")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [true],
-"method": &"main_buttons_focus_controller"
+"args": [],
+"method": &"hide"
 }]
 }
 tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/InventoryButton")
+tracks/4/path = NodePath(".")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
-"args": [],
-"method": &"grab_focus"
+"args": [true],
+"method": &"inventory_buttons_focus_controller"
 }]
 }
 
@@ -186,19 +381,19 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("StatsContainer:position")
+tracks/0/path = NodePath("Stats/StatsContainer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(118, 4), Vector2(128, 4)]
+"values": [Vector2(0, 0), Vector2(10, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("StatsContainer:modulate")
+tracks/1/path = NodePath("Stats/StatsContainer:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -210,24 +405,10 @@ tracks/1/keys = {
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("StatsContainer")
+tracks/2/path = NodePath(".")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.2),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"hide"
-}]
-}
-tracks/3/type = "method"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath(".")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -235,13 +416,13 @@ tracks/3/keys = {
 "method": &"main_buttons_focus_controller"
 }]
 }
-tracks/4/type = "method"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/StatsButton")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BaseMenu/BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/StatsButton")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
@@ -249,17 +430,31 @@ tracks/4/keys = {
 "method": &"grab_focus"
 }]
 }
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("StatsContainer:size")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Stats/StatsContainer:size")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(518, 352), Vector2(518, 352)]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Stats")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_bj8jk"]
@@ -268,19 +463,19 @@ length = 0.3
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("BaseMenuContainer:position")
+tracks/0/path = NodePath("BaseMenu/BaseMenuContainer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.3),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(-114, 4), Vector2(4, 4)]
+"values": [Vector2(-118, 0), Vector2(0, 0)]
 }
 tracks/1/type = "method"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("BaseMenuContainer")
+tracks/1/path = NodePath("BaseMenu/BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/ResumeButton")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -288,13 +483,13 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"show"
+"method": &"grab_focus"
 }]
 }
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/ResumeButton")
+tracks/2/path = NodePath("BaseMenu")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -302,8 +497,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
-"method": &"grab_focus"
+"method": &"show"
 }]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("BaseMenu/BaseMenuContainer:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(110, 179), Vector2(110, 179)]
 }
 
 [sub_resource type="Animation" id="Animation_iw8m5"]
@@ -312,19 +519,19 @@ length = 0.1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("InventoryContainer:position")
+tracks/0/path = NodePath("Inventory/InventoryContainer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(128, 4), Vector2(118, 4)]
+"values": [Vector2(10, 0), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("InventoryContainer:modulate")
+tracks/1/path = NodePath("Inventory/InventoryContainer:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -336,7 +543,63 @@ tracks/1/keys = {
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("InventoryContainer")
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [false],
+"method": &"main_buttons_focus_controller"
+}]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Inventory")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_niw2e"]
+resource_name = "show_item_description"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ItemDescription/ItemDescriptionlContainer:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(10, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ItemDescription/ItemDescriptionlContainer:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ItemDescription")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -347,18 +610,84 @@ tracks/2/keys = {
 "method": &"show"
 }]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ItemDescription/ItemDescriptionlContainer:size")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(334, 136), Vector2(334, 136)]
+}
+
+[sub_resource type="Animation" id="Animation_ehmo1"]
+resource_name = "show_stats_in_inventory"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Stats/StatsContainer:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(518, 212), Vector2(518, 212)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Stats/StatsContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(0, 150), Vector2(0, 140)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Stats/StatsContainer:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath(".")
+tracks/3/path = NodePath("Stats")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "values": [{
+"args": [],
+"method": &"show"
+}]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
 "args": [false],
-"method": &"main_buttons_focus_controller"
+"method": &"inventory_buttons_focus_controller"
 }]
 }
 
@@ -368,19 +697,19 @@ length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("StatsContainer:position")
+tracks/0/path = NodePath("Stats/StatsContainer:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(128, 4), Vector2(118, 4)]
+"values": [Vector2(10, 0), Vector2(0, 0)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("StatsContainer:modulate")
+tracks/1/path = NodePath("Stats/StatsContainer:modulate")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -392,7 +721,7 @@ tracks/1/keys = {
 tracks/2/type = "method"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("StatsContainer")
+tracks/2/path = NodePath("Stats")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -406,7 +735,7 @@ tracks/2/keys = {
 tracks/3/type = "method"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("%AnimationPlayer/..")
+tracks/3/path = NodePath(".")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -420,7 +749,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("StatsContainer:size")
+tracks/4/path = NodePath("Stats/StatsContainer:size")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -429,15 +758,121 @@ tracks/4/keys = {
 "update": 0,
 "values": [Vector2(518, 352), Vector2(518, 352)]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Stats/StatsContainer/StatsMargin/StatsVbox")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show"
+}]
+}
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Stats/StatsContainer/StatsMargin/MemberStatsVbox")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_xhofx"]
+resource_name = "show_member_stats"
+length = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Stats/StatsContainer/StatsMargin/StatsVbox")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Stats/StatsContainer/StatsMargin/MemberStatsVbox")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Stats/StatsContainer:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(518, 352)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Stats/StatsContainer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(10, 0), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Stats/StatsContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_kgt45"]
+resource_name = "hide_member_stats"
+length = 0.1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6vqca"]
 _data = {
 "RESET": SubResource("Animation_c5mef"),
 "hide_base_menu": SubResource("Animation_yurui"),
 "hide_inventory_menu": SubResource("Animation_mone0"),
+"hide_item_description": SubResource("Animation_ewn5u"),
+"hide_member_stats": SubResource("Animation_kgt45"),
+"hide_stats_in_inventory": SubResource("Animation_qy3wo"),
 "hide_stats_menu": SubResource("Animation_fb8yu"),
 "show_base_menu": SubResource("Animation_bj8jk"),
 "show_inventory_menu": SubResource("Animation_iw8m5"),
+"show_item_description": SubResource("Animation_niw2e"),
+"show_member_stats": SubResource("Animation_xhofx"),
+"show_stats_in_inventory": SubResource("Animation_ehmo1"),
 "show_stats_menu": SubResource("Animation_xkj4g")
 }
 
@@ -453,166 +888,296 @@ grow_vertical = 2
 theme = ExtResource("1_3gyfq")
 script = ExtResource("1_ng8gf")
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+[node name="AnimationPlayer1" type="AnimationPlayer" parent="."]
 unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_6vqca")
 }
 
-[node name="BaseMenuContainer" type="PanelContainer" parent="."]
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_6vqca")
+}
+
+[node name="BaseMenu" type="Control" parent="."]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(110, 179)
-layout_mode = 0
-offset_left = 4.0
-offset_top = 4.0
-offset_right = 114.0
-offset_bottom = 183.0
+anchors_preset = 0
+anchor_left = 0.00625
+anchor_top = 0.0111111
+anchor_right = 0.178125
+anchor_bottom = 0.508333
+metadata/_edit_use_anchors_ = true
 
-[node name="BaseMenuMargin" type="MarginContainer" parent="BaseMenuContainer"]
+[node name="BaseMenuContainer" type="PanelContainer" parent="BaseMenu"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BaseMenuMargin" type="MarginContainer" parent="BaseMenu/BaseMenuContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="BaseMenuVbox" type="VBoxContainer" parent="BaseMenuContainer/BaseMenuMargin"]
+[node name="BaseMenuVbox" type="VBoxContainer" parent="BaseMenu/BaseMenuContainer/BaseMenuMargin"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="ResumeButton" type="Button" parent="BaseMenuContainer/BaseMenuMargin/BaseMenuVbox"]
+[node name="ResumeButton" type="Button" parent="BaseMenu/BaseMenuContainer/BaseMenuMargin/BaseMenuVbox"]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_top = NodePath("../ExitButton")
+action_mode = 0
 text = "RESUME"
 
-[node name="InventoryButton" type="Button" parent="BaseMenuContainer/BaseMenuMargin/BaseMenuVbox"]
+[node name="InventoryButton" type="Button" parent="BaseMenu/BaseMenuContainer/BaseMenuMargin/BaseMenuVbox"]
 unique_name_in_owner = true
 layout_mode = 2
+action_mode = 0
 text = "INVENTORY"
 
-[node name="StatsButton" type="Button" parent="BaseMenuContainer/BaseMenuMargin/BaseMenuVbox"]
+[node name="StatsButton" type="Button" parent="BaseMenu/BaseMenuContainer/BaseMenuMargin/BaseMenuVbox"]
 unique_name_in_owner = true
 layout_mode = 2
+action_mode = 0
 text = "STATS"
 
-[node name="OptionButton" type="Button" parent="BaseMenuContainer/BaseMenuMargin/BaseMenuVbox"]
+[node name="OptionButton" type="Button" parent="BaseMenu/BaseMenuContainer/BaseMenuMargin/BaseMenuVbox"]
 unique_name_in_owner = true
 layout_mode = 2
+action_mode = 0
 text = "OPTION"
 
-[node name="ExitButton" type="Button" parent="BaseMenuContainer/BaseMenuMargin/BaseMenuVbox"]
+[node name="ExitButton" type="Button" parent="BaseMenu/BaseMenuContainer/BaseMenuMargin/BaseMenuVbox"]
 unique_name_in_owner = true
 layout_mode = 2
 focus_neighbor_bottom = NodePath("../ResumeButton")
+action_mode = 0
 text = "EXIT"
 
-[node name="InventoryContainer" type="PanelContainer" parent="."]
+[node name="Inventory" type="Control" parent="."]
 unique_name_in_owner = true
 visible = false
-layout_mode = 0
-offset_left = 118.0
-offset_top = 4.0
-offset_right = 298.0
-offset_bottom = 140.0
+custom_minimum_size = Vector2(180, 136)
+anchors_preset = 0
+anchor_left = 0.184375
+anchor_top = 0.0111111
+anchor_right = 0.465625
+anchor_bottom = 0.388889
+metadata/_edit_use_anchors_ = true
 
-[node name="InventoryMargin" type="MarginContainer" parent="InventoryContainer"]
+[node name="InventoryContainer" type="PanelContainer" parent="Inventory"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -4.57764e-05
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="InventoryMargin" type="MarginContainer" parent="Inventory/InventoryContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="InventoryGrid" type="GridContainer" parent="InventoryContainer/InventoryMargin"]
+[node name="InventoryGrid" type="GridContainer" parent="Inventory/InventoryContainer/InventoryMargin"]
 unique_name_in_owner = true
 layout_mode = 2
 columns = 4
 
-[node name="ItemSlot1" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+[node name="ItemSlot1" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
-disable_tex = ExtResource("4_dmihj")
+item = ExtResource("5_6scwg")
 
-[node name="ItemSlot2" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+[node name="ItemSlot2" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
-disable_tex = ExtResource("4_dmihj")
 
-[node name="ItemSlot3" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+[node name="ItemSlot3" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
-disable_tex = ExtResource("4_dmihj")
 
-[node name="ItemSlot4" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+[node name="ItemSlot4" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
-disable_tex = ExtResource("4_dmihj")
 
-[node name="ItemSlot5" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+[node name="ItemSlot5" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
-disable_tex = ExtResource("4_dmihj")
-disable = true
+enable = false
 
-[node name="ItemSlot6" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+[node name="ItemSlot6" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
-disable_tex = ExtResource("4_dmihj")
-disable = true
+enable = false
 
-[node name="ItemSlot7" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+[node name="ItemSlot7" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
-disable_tex = ExtResource("4_dmihj")
-disable = true
+enable = false
 
-[node name="ItemSlot8" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+[node name="ItemSlot8" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
-disable_tex = ExtResource("4_dmihj")
-disable = true
+enable = false
 
-[node name="ItemSlot9" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+[node name="ItemSlot9" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
-disable_tex = ExtResource("4_dmihj")
-disable = true
+enable = false
 
-[node name="ItemSlot10" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+[node name="ItemSlot10" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
-disable_tex = ExtResource("4_dmihj")
-disable = true
+enable = false
 
-[node name="ItemSlot11" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+[node name="ItemSlot11" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
-disable_tex = ExtResource("4_dmihj")
-disable = true
+enable = false
 
-[node name="ItemSlot12" parent="InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
+[node name="ItemSlot12" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
-disable_tex = ExtResource("4_dmihj")
-disable = true
+enable = false
 
-[node name="StatsContainer" type="PanelContainer" parent="."]
+[node name="ItemDescription" type="Control" parent="."]
 unique_name_in_owner = true
-clip_contents = true
-custom_minimum_size = Vector2(518, 352)
-layout_mode = 0
-anchor_left = 0.184375
+visible = false
+anchors_preset = 0
+anchor_left = 0.471875
 anchor_top = 0.0111111
 anchor_right = 0.99375
-anchor_bottom = 0.988889
-offset_left = 118.0
-offset_top = 4.0
-offset_right = 636.0
-offset_bottom = 356.0
-metadata/_edit_use_anchors_ = true
+anchor_bottom = 0.388889
 
-[node name="StatsMargin" type="MarginContainer" parent="StatsContainer"]
+[node name="ItemDescriptionlContainer" type="PanelContainer" parent="ItemDescription"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 234.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="ItemDescription/ItemDescriptionlContainer"]
 layout_mode = 2
 theme_override_constants/margin_left = 4
 theme_override_constants/margin_top = 4
 theme_override_constants/margin_right = 4
 theme_override_constants/margin_bottom = 4
 
-[node name="StatsVbox" type="VBoxContainer" parent="StatsContainer/StatsMargin"]
+[node name="HBoxContainer" type="HBoxContainer" parent="ItemDescription/ItemDescriptionlContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ItemDescription/ItemDescriptionlContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+
+[node name="ItemNameLabel" type="RichTextLabel" parent="ItemDescription/ItemDescriptionlContainer/MarginContainer/HBoxContainer/VBoxContainer"]
 unique_name_in_owner = true
+layout_mode = 2
+bbcode_enabled = true
+text = "Item Name"
+fit_content = true
+
+[node name="HSeparator" type="HSeparator" parent="ItemDescription/ItemDescriptionlContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="ItemDescriptionLabel" type="RichTextLabel" parent="ItemDescription/ItemDescriptionlContainer/MarginContainer/HBoxContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/mono_font_size = 14
+bbcode_enabled = true
+text = "Item Description"
+fit_content = true
+
+[node name="Stats" type="Control" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(518, 352)
+layout_mode = 1
+anchor_left = 0.184375
+anchor_top = 0.0111111
+anchor_right = 0.99375
+anchor_bottom = 0.988889
+metadata/_edit_use_anchors_ = true
+
+[node name="StatsContainer" type="PanelContainer" parent="Stats"]
+clip_contents = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -3.05176e-05
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="StatsMargin" type="MarginContainer" parent="Stats/StatsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="StatsVbox" type="VBoxContainer" parent="Stats/StatsContainer/StatsMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="MemberStatsVbox" type="VBoxContainer" parent="Stats/StatsContainer/StatsMargin"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Stats/StatsContainer/StatsMargin/MemberStatsVbox"]
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="Stats/StatsContainer/StatsMargin/MemberStatsVbox/HBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[connection signal="button_down" from="BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/ResumeButton" to="." method="_on_resume_button_button_down"]
-[connection signal="button_down" from="BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/InventoryButton" to="." method="_on_inventory_button_button_down"]
-[connection signal="button_down" from="BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/StatsButton" to="." method="_on_stats_button_button_down"]
-[connection signal="button_down" from="BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/OptionButton" to="." method="_on_option_button_button_down"]
-[connection signal="button_down" from="BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/ExitButton" to="." method="_on_exit_button_button_down"]
+[node name="TextureRect" type="TextureRect" parent="Stats/StatsContainer/StatsMargin/MemberStatsVbox/HBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+texture = ExtResource("5_aacuh")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="BasicInfoLabel" type="RichTextLabel" parent="Stats/StatsContainer/StatsMargin/MemberStatsVbox/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+bbcode_enabled = true
+text = "???
+LEVEL: ??
+EXP: ??
+NEXT LEVEL: ??
+"
+fit_content = true
+
+[node name="HSeparator" type="HSeparator" parent="Stats/StatsContainer/StatsMargin/MemberStatsVbox"]
+layout_mode = 2
+
+[node name="HPLabel" type="RichTextLabel" parent="Stats/StatsContainer/StatsMargin/MemberStatsVbox"]
+layout_mode = 2
+bbcode_enabled = true
+text = "HP:
+"
+fit_content = true
+
+[node name="HPBar" type="ProgressBar" parent="Stats/StatsContainer/StatsMargin/MemberStatsVbox"]
+layout_mode = 2
+show_percentage = false
+
+[node name="FullStatsLabel" type="RichTextLabel" parent="Stats/StatsContainer/StatsMargin/MemberStatsVbox"]
+layout_mode = 2
+bbcode_enabled = true
+text = "STRENGTH: ???
+AGILITY: ???
+INTELLIGENCE: ???"
+fit_content = true
+
+[connection signal="pressed" from="BaseMenu/BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="BaseMenu/BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/InventoryButton" to="." method="_on_inventory_button_pressed"]
+[connection signal="pressed" from="BaseMenu/BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/StatsButton" to="." method="_on_stats_button_pressed"]
+[connection signal="pressed" from="BaseMenu/BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/OptionButton" to="." method="_on_option_button_pressed"]
+[connection signal="pressed" from="BaseMenu/BaseMenuContainer/BaseMenuMargin/BaseMenuVbox/ExitButton" to="." method="_on_exit_button_pressed"]

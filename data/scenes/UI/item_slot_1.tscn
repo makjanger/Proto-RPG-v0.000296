@@ -1,6 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://c2sa6kr5x4kca"]
+[gd_scene load_steps=8 format=3 uid="uid://c2sa6kr5x4kca"]
 
 [ext_resource type="Script" path="res://data/scenes/UI/item_slot_1.gd" id="1_nxqav"]
+[ext_resource type="Texture2D" uid="uid://cfq0luah1mtgh" path="res://data/sprites/GreyX.png" id="2_px2ec"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8fj1y"]
 
@@ -10,6 +11,9 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_euwqm"]
 
+[sub_resource type="LabelSettings" id="LabelSettings_1kniy"]
+font_size = 12
+
 [node name="ItemSlot1" type="PanelContainer"]
 custom_minimum_size = Vector2(40, 40)
 offset_right = 40.0
@@ -17,6 +21,7 @@ offset_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_nxqav")
+disable_tex = ExtResource("2_px2ec")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true
@@ -30,3 +35,20 @@ theme_override_styles/normal = SubResource("StyleBoxEmpty_8fj1y")
 theme_override_styles/hover = SubResource("StyleBoxEmpty_0iw6w")
 theme_override_styles/pressed = SubResource("StyleBoxEmpty_81ua2")
 theme_override_styles/disabled = SubResource("StyleBoxEmpty_euwqm")
+action_mode = 0
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+
+[node name="AmountLabel" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "x99"
+label_settings = SubResource("LabelSettings_1kniy")
+horizontal_alignment = 2

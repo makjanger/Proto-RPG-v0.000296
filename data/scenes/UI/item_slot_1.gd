@@ -28,7 +28,10 @@ signal item_selected(item: Item)
 @export var item: Item:
     set(new_item):
         item = new_item
-        texture = item.texture
+        if item:
+            texture = item.texture
+        else:
+            texture = null
 
 
 var texture: Texture:
@@ -37,6 +40,7 @@ var texture: Texture:
         
         if new_texture == null:
             texture = null
+            sprite.texture = texture
             return
         
         texture = new_texture
@@ -47,9 +51,10 @@ var is_ready: bool = false
 
 func _ready() -> void:
     amount_label.hide()
+    size = Vector2(40, 40)
 
     if item:
-        item.changed.connect(item_property_changed)
+        item.property_changed.connect(item_property_changed)
         set_item_amount()
         set_item_stackable()
     
@@ -89,6 +94,12 @@ func on_button_focus_exited() -> void:
 
 func set_item_amount() -> void:
     print("{SET ITEM: ", item.name, "} {AMOUNT: ", item.amount, "}")
+    if item.amount <= 0:
+        item = null
+        amount_label.hide()
+        amount_label.text = "x0"
+        return
+
     amount_label.text = "x%d" % [item.amount]
 
 

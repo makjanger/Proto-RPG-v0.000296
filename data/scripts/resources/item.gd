@@ -5,8 +5,8 @@ extends Resource
 signal property_changed(property_name: String)
 
 
-enum ItemType { CONSUMABLE, EQUIPPABLE }
-enum ItemEffect { HEAL_HP, HEAL_MP}
+enum ItemType { CONSUMABLE = 1, EQUIPPABLE = 2 }
+enum ItemEffect { HEAL_HP = 1, HEAL_MP = 2}
 
 
 @export var texture: Texture
@@ -37,14 +37,20 @@ func set_stackable(new_stackable: bool) -> void:
     property_changed.emit("item_stackable")
 
 
-func use() -> int:
+func use(player_stats: PlayerStats) -> int:
+    print("{TYPE: ", type, "} {EFFECT: ", effect, "}")
     match type:
         ItemType.CONSUMABLE:
             match effect:
                 ItemEffect.HEAL_HP:
-                    return effect_strength
+                    if player_stats.health == player_stats.max_health:
+                        return 0
+                    
+                    player_stats.health += effect_strength
+                    amount -= 1
+                    return ItemEffect.HEAL_HP
                 ItemEffect.HEAL_MP:
-                    return effect_strength
+                    return ItemEffect.HEAL_MP
                 _:
                     return 0
         ItemType.EQUIPPABLE:

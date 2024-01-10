@@ -17,6 +17,12 @@ extends Control
 @onready var party_member_slots: Array = %StatsVbox.get_children()
 @onready var party_member_stats: VBoxContainer = %MemberStatsVbox
 
+@onready var stats_avatar: TextureRect = %StatsAvatar
+@onready var stats_basic_info: RichTextLabel = %BasicInfoLabel
+@onready var stats_hp: RichTextLabel = %HPLabel
+@onready var stats_hp_bar: ProgressBar = %HPBar
+@onready var stats_full: RichTextLabel = %FullStatsLabel
+
 @onready var main_buttons: Array = %BaseMenuVbox.get_children()
 # @onready var resume_button: Button = %ResumeButton
 # @onready var inventory_button: Button = %InventoryButton
@@ -29,6 +35,8 @@ var previous_item: Item: set = set_previous_item
 
 var selected_item: ItemSlot
 var previous_selected_item: ItemSlot
+
+var current_party_member_selected: PartyMemberStats
 
 var active_window: Node = null
 
@@ -83,6 +91,10 @@ func _on_exit_button_pressed() -> void:
 	accept_event()
 
 
+func on_member_stats_button_focus_entered(member_stats: PartyMemberStats) -> void:
+	current_party_member_selected = member_stats
+
+
 func on_new_item_focused(item_slot: ItemSlot, item: Item) -> void:
 	if anim_player_1.is_playing():
 		await anim_player_1.animation_finished
@@ -94,7 +106,7 @@ func on_new_item_focused(item_slot: ItemSlot, item: Item) -> void:
 	new_item = item
 
 
-func on_item_selected(item: Item) -> void:
+func on_item_selected(_item: Item) -> void:
 	active_window = stats_menu
 	anim_player_1.play("show_stats_in_inventory")
 	assign_party_members()
@@ -103,10 +115,40 @@ func on_item_selected(item: Item) -> void:
 
 
 func on_member_stats_pressed() -> void:
+	## Called from on_item_selected().
 	if selected_item:
-		pass
+		var item_effect: int = selected_item.item.use(current_party_member_selected.stats)
+
+		match item_effect:
+			0: # Effect Denied
+				anim_player_1.play("shake_stats_in_inventory")
+			1: # HEAL_HP
+				pass
+			2: # HEAL_MP
+				pass
+		
+		GameManager.check_stats.emit()
+			
+		if !selected_item.item:
+			current_party_member_selected.button.release_focus()
+			anim_player_2.play("hide_item_description")
+			await get_tree().create_timer(0.05).timeout
+			show_hide_main_ui(true)
+			return
 	else:
 		active_window = party_member_stats
+
+		stats_avatar.texture = current_party_member_selected.sprite.texture
+		stats_basic_info.text = current_party_member_selected.basic_info_text.text
+		stats_hp.text = current_party_member_selected.health_label.text
+		stats_hp_bar.value = current_party_member_selected.health_bar.value
+		stats_hp_bar.max_value = current_party_member_selected.health_bar.max_value
+		
+		stats_full.text = "STRENGTH: %d\nAGILITY: %d\nINTELLIGENCE: %d" % \
+		[current_party_member_selected.stats.strength,\
+		current_party_member_selected.stats.agility,\
+		current_party_member_selected.stats.intelligence]
+
 		anim_player_1.play("show_member_stats")
 
 
@@ -133,17 +175,20 @@ func show_hide_main_ui(is_ui_visible: bool) -> void:
 			active_window = base_menu
 			selected_item = null
 			previous_selected_item = null
+			current_party_member_selected = null
 			anim_player_2.play("hide_item_description")
 			anim_player_1.play("hide_inventory_menu")
 		
 		stats_menu:
 			if inventory_menu.is_visible_in_tree():
 				active_window = inventory_menu
+				current_party_member_selected = null
 				anim_player_1.play("hide_stats_in_inventory")
 				await get_tree().create_timer(0.01).timeout
 				selected_item.button.grab_focus()
 			else:
 				active_window = base_menu
+				current_party_member_selected = null
 				anim_player_1.play("hide_stats_menu")
 		
 		party_member_stats:
@@ -194,6 +239,9 @@ func assign_party_members() -> void:
 		for member: BasePlayer in player_party:
 			var member_stats: PartyMemberStats = party_member_panel.instantiate()
 			%StatsVbox.add_child(member_stats)
+
+			member_stats.party_member_focus_entered.connect(on_member_stats_button_focus_entered)
+
 			member_stats.stats = member.stats
 			member_stats.assign_stats()
 			member_stats.button.pressed.connect(on_member_stats_pressed)

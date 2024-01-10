@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://b5v8ribuev283"]
+[gd_scene load_steps=21 format=3 uid="uid://b5v8ribuev283"]
 
 [ext_resource type="Theme" uid="uid://dkvujhxwpd066" path="res://data/themes/default_theme.tres" id="1_3gyfq"]
 [ext_resource type="Script" path="res://data/scenes/UI/main_ui.gd" id="1_ng8gf"]
@@ -245,7 +245,7 @@ tracks/4/path = NodePath("Inventory")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
+"times": PackedFloat32Array(0.1),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -306,6 +306,10 @@ tracks/3/keys = {
 "update": 0,
 "values": [Vector2(334, 136), Vector2(334, 136)]
 }
+
+[sub_resource type="Animation" id="Animation_kgt45"]
+resource_name = "hide_member_stats"
+length = 0.1
 
 [sub_resource type="Animation" id="Animation_qy3wo"]
 resource_name = "hide_stats_in_inventory"
@@ -623,6 +627,74 @@ tracks/3/keys = {
 "values": [Vector2(334, 136), Vector2(334, 136)]
 }
 
+[sub_resource type="Animation" id="Animation_xhofx"]
+resource_name = "show_member_stats"
+length = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Stats/StatsContainer/StatsMargin/StatsVbox")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hide"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Stats/StatsContainer/StatsMargin/MemberStatsVbox")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"show"
+}]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Stats/StatsContainer:size")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(518, 352)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Stats/StatsContainer:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(0.5, 1),
+"update": 0,
+"values": [Vector2(10, 0), Vector2(0, 0)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Stats/StatsContainer:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_ehmo1"]
 resource_name = "show_stats_in_inventory"
 length = 0.1
@@ -787,77 +859,34 @@ tracks/6/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_xhofx"]
-resource_name = "show_member_stats"
+[sub_resource type="Animation" id="Animation_fbwin"]
+resource_name = "shake_stats_in_inventory"
 length = 0.1
-tracks/0/type = "method"
+step = 0.01
+tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Stats/StatsContainer/StatsMargin/StatsVbox")
+tracks/0/path = NodePath("Stats/StatsContainer:size")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"hide"
-}]
+"transitions": PackedFloat32Array(0.5),
+"update": 0,
+"values": [Vector2(518, 212)]
 }
-tracks/1/type = "method"
+tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Stats/StatsContainer/StatsMargin/MemberStatsVbox")
+tracks/1/path = NodePath("Stats/StatsContainer:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [],
-"method": &"show"
-}]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Stats/StatsContainer:size")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5),
 "update": 0,
-"values": [Vector2(518, 352)]
+"values": [Vector2(0, 140), Vector2(2, 140), Vector2(-2, 140), Vector2(2, 140), Vector2(-2, 140), Vector2(2, 140), Vector2(-2, 140), Vector2(2, 140), Vector2(-2, 140), Vector2(2, 140), Vector2(0, 140)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Stats/StatsContainer:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(0.5, 1),
-"update": 0,
-"values": [Vector2(10, 0), Vector2(0, 0)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Stats/StatsContainer:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.1),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_kgt45"]
-resource_name = "hide_member_stats"
-length = 0.1
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6vqca"]
 _data = {
@@ -868,6 +897,7 @@ _data = {
 "hide_member_stats": SubResource("Animation_kgt45"),
 "hide_stats_in_inventory": SubResource("Animation_qy3wo"),
 "hide_stats_menu": SubResource("Animation_fb8yu"),
+"shake_stats_in_inventory": SubResource("Animation_fbwin"),
 "show_base_menu": SubResource("Animation_bj8jk"),
 "show_inventory_menu": SubResource("Animation_iw8m5"),
 "show_item_description": SubResource("Animation_niw2e"),
@@ -974,12 +1004,8 @@ metadata/_edit_use_anchors_ = true
 
 [node name="InventoryContainer" type="PanelContainer" parent="Inventory"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_bottom = -4.57764e-05
-grow_horizontal = 2
-grow_vertical = 2
+offset_right = 180.0
+offset_bottom = 136.0
 
 [node name="InventoryMargin" type="MarginContainer" parent="Inventory/InventoryContainer"]
 layout_mode = 2
@@ -995,47 +1021,71 @@ columns = 4
 
 [node name="ItemSlot1" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 item = ExtResource("5_6scwg")
 
 [node name="ItemSlot2" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="ItemSlot3" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="ItemSlot4" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 
 [node name="ItemSlot5" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 enable = false
 
 [node name="ItemSlot6" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 enable = false
 
 [node name="ItemSlot7" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 enable = false
 
 [node name="ItemSlot8" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 enable = false
 
 [node name="ItemSlot9" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 enable = false
 
 [node name="ItemSlot10" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 enable = false
 
 [node name="ItemSlot11" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 enable = false
 
 [node name="ItemSlot12" parent="Inventory/InventoryContainer/InventoryMargin/InventoryGrid" instance=ExtResource("2_31cvn")]
 layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
 enable = false
 
 [node name="ItemDescription" type="Control" parent="."]
@@ -1091,6 +1141,7 @@ fit_content = true
 
 [node name="Stats" type="Control" parent="."]
 unique_name_in_owner = true
+visible = false
 custom_minimum_size = Vector2(518, 352)
 layout_mode = 1
 anchor_left = 0.184375
@@ -1124,6 +1175,7 @@ layout_mode = 2
 
 [node name="MemberStatsVbox" type="VBoxContainer" parent="Stats/StatsContainer/StatsMargin"]
 unique_name_in_owner = true
+visible = false
 layout_mode = 2
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Stats/StatsContainer/StatsMargin/MemberStatsVbox"]
@@ -1135,7 +1187,8 @@ layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 0
 
-[node name="TextureRect" type="TextureRect" parent="Stats/StatsContainer/StatsMargin/MemberStatsVbox/HBoxContainer/CenterContainer"]
+[node name="StatsAvatar" type="TextureRect" parent="Stats/StatsContainer/StatsMargin/MemberStatsVbox/HBoxContainer/CenterContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
 texture = ExtResource("5_aacuh")
@@ -1143,6 +1196,7 @@ expand_mode = 1
 stretch_mode = 6
 
 [node name="BasicInfoLabel" type="RichTextLabel" parent="Stats/StatsContainer/StatsMargin/MemberStatsVbox/HBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
@@ -1158,6 +1212,7 @@ fit_content = true
 layout_mode = 2
 
 [node name="HPLabel" type="RichTextLabel" parent="Stats/StatsContainer/StatsMargin/MemberStatsVbox"]
+unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
 text = "HP:
@@ -1165,10 +1220,12 @@ text = "HP:
 fit_content = true
 
 [node name="HPBar" type="ProgressBar" parent="Stats/StatsContainer/StatsMargin/MemberStatsVbox"]
+unique_name_in_owner = true
 layout_mode = 2
 show_percentage = false
 
 [node name="FullStatsLabel" type="RichTextLabel" parent="Stats/StatsContainer/StatsMargin/MemberStatsVbox"]
+unique_name_in_owner = true
 layout_mode = 2
 bbcode_enabled = true
 text = "STRENGTH: ???

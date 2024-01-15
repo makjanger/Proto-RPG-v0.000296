@@ -27,7 +27,7 @@ func reset_action_token() -> void:
 func end_battle() -> void:
 	printerr("BATTLE OVER!")
 	is_battle_over = true
-	assign_experience()
+	# assign_experience()
 	SceneStacker.pop()
 
 

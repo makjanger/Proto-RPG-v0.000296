@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://cwdfpyqkns3ys"]
+[gd_scene load_steps=15 format=3 uid="uid://cwdfpyqkns3ys"]
 
 [ext_resource type="PackedScene" uid="uid://dspnjkvmreh78" path="res://data/scenes/player_over_world/player_over_world.tscn" id="1_f5bic"]
 [ext_resource type="Script" path="res://data/scenes/main/main.gd" id="1_jk7te"]
@@ -7,6 +7,96 @@
 [ext_resource type="Resource" uid="uid://bagcj6pkmvjnf" path="res://data/scenes/player2/player_2_stats.tres" id="3_hkvad"]
 [ext_resource type="Script" path="res://data/scenes/main/UILayer.gd" id="6_ftnot"]
 [ext_resource type="PackedScene" uid="uid://b5v8ribuev283" path="res://data/scenes/UI/main_ui.tscn" id="6_yau4f"]
+
+[sub_resource type="Animation" id="Animation_y3qm3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UILayer/DarkBG:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UILayer/DarkBG:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_301qq"]
+resource_name = "scene_entered"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UILayer/DarkBG:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UILayer/DarkBG:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 1), Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_0186w"]
+resource_name = "scene_exited"
+length = 0.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UILayer/DarkBG:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UILayer/DarkBG:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_m8f2x"]
+_data = {
+"RESET": SubResource("Animation_y3qm3"),
+"scene_entered": SubResource("Animation_301qq"),
+"scene_exited": SubResource("Animation_0186w")
+}
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hv0cn"]
 texture = ExtResource("2_4qigx")
@@ -420,10 +510,18 @@ texture = ExtResource("2_4qigx")
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_hv0cn")
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_3j3c2"]
+
 [node name="Main" type="Node2D"]
 process_mode = 3
 y_sort_enabled = true
 script = ExtResource("1_jk7te")
+
+[node name="MainAnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
+libraries = {
+"": SubResource("AnimationLibrary_m8f2x")
+}
 
 [node name="Level" type="Node" parent="."]
 process_mode = 1
@@ -450,3 +548,16 @@ position = Vector2(309, 184)
 script = ExtResource("6_ftnot")
 
 [node name="MainUI" parent="UILayer" instance=ExtResource("6_yau4f")]
+
+[node name="DarkBG" type="TextureRect" parent="UILayer"]
+unique_name_in_owner = true
+modulate = Color(0, 0, 0, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("CanvasTexture_3j3c2")
+
+[connection signal="tree_entered" from="." to="." method="_on_tree_entered"]
+[connection signal="tree_exited" from="." to="." method="_on_tree_exited"]

@@ -461,6 +461,35 @@ tracks/5/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_fbwin"]
+resource_name = "shake_stats_in_inventory"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Stats/StatsContainer:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.5),
+"update": 0,
+"values": [Vector2(518, 212)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Stats/StatsContainer:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1),
+"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5),
+"update": 0,
+"values": [Vector2(0, 140), Vector2(2, 140), Vector2(-2, 140), Vector2(2, 140), Vector2(-2, 140), Vector2(2, 140), Vector2(-2, 140), Vector2(2, 140), Vector2(-2, 140), Vector2(2, 140), Vector2(0, 140)]
+}
+
 [sub_resource type="Animation" id="Animation_bj8jk"]
 resource_name = "show_base_menu"
 length = 0.3
@@ -859,35 +888,6 @@ tracks/6/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_fbwin"]
-resource_name = "shake_stats_in_inventory"
-length = 0.1
-step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Stats/StatsContainer:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(0.5),
-"update": 0,
-"values": [Vector2(518, 212)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Stats/StatsContainer:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.01, 0.02, 0.03, 0.04, 0.05, 0.06, 0.07, 0.08, 0.09, 0.1),
-"transitions": PackedFloat32Array(0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5, 0.5),
-"update": 0,
-"values": [Vector2(0, 140), Vector2(2, 140), Vector2(-2, 140), Vector2(2, 140), Vector2(-2, 140), Vector2(2, 140), Vector2(-2, 140), Vector2(2, 140), Vector2(-2, 140), Vector2(2, 140), Vector2(0, 140)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6vqca"]
 _data = {
 "RESET": SubResource("Animation_c5mef"),
@@ -972,6 +972,11 @@ layout_mode = 2
 action_mode = 0
 text = "INVENTORY"
 
+[node name="EquipmentButton" type="Button" parent="BaseMenu/BaseMenuContainer/BaseMenuMargin/BaseMenuVbox"]
+layout_mode = 2
+action_mode = 0
+text = "EQUIPMENT"
+
 [node name="StatsButton" type="Button" parent="BaseMenu/BaseMenuContainer/BaseMenuMargin/BaseMenuVbox"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -993,7 +998,6 @@ text = "EXIT"
 
 [node name="Inventory" type="Control" parent="."]
 unique_name_in_owner = true
-visible = false
 custom_minimum_size = Vector2(180, 136)
 anchors_preset = 0
 anchor_left = 0.184375

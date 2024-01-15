@@ -6,6 +6,8 @@ extends BaseStats
 @export var experience: int = 0 : set = set_experience
 @export var max_experience: int = 100 : set = set_max_experience
 
+var exp_remainder
+
 
 func set_level(new_level: int) -> void:
     if level == new_level: return
@@ -22,11 +24,15 @@ func set_level(new_level: int) -> void:
 
 func set_experience(new_experience: int) -> void:
     if experience == new_experience: return
-    
+
     experience += new_experience
+
     if experience >= max_experience:
+        exp_remainder = experience - max_experience
         experience = 0
         level += 1
+    elif experience < max_experience:
+        exp_remainder = 0
 
 
 func set_max_experience(new_max_experience: int) -> void:

@@ -6,6 +6,7 @@ signal party_member_focus_entered(itself: PartyMemberStats)
 
 @onready var sprite: TextureRect = %TextureSprite
 @onready var basic_info_text: RichTextLabel = %BasicInfoText
+@onready var equipment: RichTextLabel = %Equipment
 @onready var health_label: RichTextLabel = %HealthLabel
 @onready var health_bar: ProgressBar = %HealthBar
 @onready var button: Button = %StatsButton

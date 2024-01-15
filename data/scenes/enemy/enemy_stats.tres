@@ -1,11 +1,11 @@
-[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3 uid="uid://c0byj2l3xls2y"]
+[gd_resource type="Resource" script_class="EnemyStats" load_steps=2 format=3 uid="uid://bbn2s7c0tj8np"]
 
 [ext_resource type="Script" path="res://data/scripts/resources/enemy_stats.gd" id="1_vyc70"]
 
 [resource]
 resource_local_to_scene = true
 script = ExtResource("1_vyc70")
-experience_points = 50
+experience_points = 60
 name = "Enemy"
 health = 100
 max_health = 100

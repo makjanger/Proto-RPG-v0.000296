@@ -6,6 +6,14 @@
 [resource]
 script = ExtResource("1_am8iu")
 texture = ExtResource("2_5fpnv")
-item_name = "Knife"
-item_desc = "Damage + 10"
-item_type = 1
+name = "Sword"
+description = "The ol' reliable.
+Damage + 40"
+type = 2
+consumable_effect = 1
+equippable_effect = 3
+equippable_slot = "MAIN HAND"
+attack_type = 331
+effect_strength = 40
+amount = 1
+stackable = false

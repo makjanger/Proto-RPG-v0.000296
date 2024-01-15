@@ -57,12 +57,13 @@ EXP: ??
 NEXT LEVEL: ??"
 fit_content = true
 
-[node name="RichTextLabel" type="RichTextLabel" parent="MarginContainer/HBoxContainer"]
+[node name="Equipment" type="RichTextLabel" parent="MarginContainer/HBoxContainer"]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(160, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 bbcode_enabled = true
-text = "Weapon"
+text = "EQUIPMENT"
 fit_content = true
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]

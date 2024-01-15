@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://c2sa6kr5x4kca"]
 
 [ext_resource type="Script" path="res://data/scenes/UI/item_slot_1.gd" id="1_nxqav"]
-[ext_resource type="Texture2D" uid="uid://cfq0luah1mtgh" path="res://data/sprites/GreyX.png" id="2_px2ec"]
+[ext_resource type="Texture2D" uid="uid://b8wb88d41nnis" path="res://data/sprites/grey_x.png" id="2_hofyf"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_8fj1y"]
 
@@ -21,7 +21,7 @@ offset_bottom = 40.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 script = ExtResource("1_nxqav")
-disable_tex = ExtResource("2_px2ec")
+disable_tex = ExtResource("2_hofyf")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 unique_name_in_owner = true

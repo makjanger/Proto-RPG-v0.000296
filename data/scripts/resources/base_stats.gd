@@ -16,3 +16,6 @@ extends Resource
 @export var strength: int = 1
 @export var agility: int = 1
 @export var intelligence: int = 1
+
+var damage_modifier: int
+var defense_modifier: int

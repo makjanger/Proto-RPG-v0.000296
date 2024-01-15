@@ -19,7 +19,7 @@ func enter(obj: Variant = null) -> void:
 		await tween.finished
 
 		if obj.has_method("take_damage"):
-			obj.take_damage(40 + master_node.stats.strength)
+			obj.take_damage(master_node.stats.strength + master_node.stats.damage_modifier)
 		
 		if obj.anim_player.current_animation == "death":
 			await obj.anim_player.animation_finished

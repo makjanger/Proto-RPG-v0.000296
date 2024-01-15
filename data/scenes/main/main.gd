@@ -2,9 +2,12 @@
 extends Node2D
 
 
+signal first_init()
+
 @onready var anim_player: AnimationPlayer = %MainAnimationPlayer
 @onready var dark_bg: TextureRect = %DarkBG
 
+var first_init_ready := false
 var is_ready := false
 
 
@@ -30,6 +33,10 @@ func _on_tree_entered() -> void:
 	anim_player.play("scene_entered")
 	await anim_player.animation_finished
 	get_tree().paused = false
+	
+	if !first_init_ready:
+		first_init_ready = true
+		first_init.emit()
 
 
 func _on_tree_exited() -> void:

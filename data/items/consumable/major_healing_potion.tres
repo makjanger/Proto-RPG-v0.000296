@@ -6,6 +6,15 @@
 [resource]
 script = ExtResource("1_kmp5s")
 texture = ExtResource("2_q7sp3")
-item_name = "Major Healing Potion"
-item_desc = "Heals for 30HP"
-item_type = 0
+name = "Major Healing Potion"
+description = "Taste great too.
+HP + 40"
+type = 1
+consumable_effect = 1
+equippable_effect = 3
+equippable_slot = "MAIN HAND"
+attack_type = 331
+effect_strength = 40
+amount = 1
+max_amount = 99
+stackable = true

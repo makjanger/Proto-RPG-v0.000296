@@ -11,6 +11,8 @@ signal party_member_focus_entered(itself: PartyMemberStats)
 @onready var health_bar: ProgressBar = %HealthBar
 @onready var button: Button = %StatsButton
 
+@onready var image := preload("res://data/sprites/sword.png")
+
 var stats: PlayerStats
 
 
@@ -24,6 +26,8 @@ func assign_stats() -> void:
 
 	basic_info_text.text = "%s\nLevel: %d\nEXP: %d\nNEXT: %d" % \
 	[stats.name, stats.level, stats.experience, stats.max_experience]
+
+	
 
 	health_bar.max_value = stats.max_health
 	health_bar.value = stats.health

@@ -1,11 +1,15 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://d3tawphitrcbx"]
 
 [ext_resource type="Script" path="res://data/scripts/resources/item.gd" id="1_pjjbg"]
-[ext_resource type="Texture2D" uid="uid://lfd28dko4bgh" path="res://data/sprites/minor_red_potion.png" id="2_88ghn"]
+[ext_resource type="Texture2D" uid="uid://cutn4y8tqso0b" path="res://data/sprites/knife.png" id="2_0rn5p"]
 
 [resource]
 script = ExtResource("1_pjjbg")
-texture = ExtResource("2_88ghn")
-item_name = "Minor Healing Potion"
-item_desc = "Heals for 10HP"
-item_type = 0
+texture = ExtResource("2_0rn5p")
+name = "Knife"
+description = ""
+type = 1
+consumable_effect = null
+effect_strength = 1
+amount = 1
+stackable = false

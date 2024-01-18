@@ -2,8 +2,6 @@ class_name PlayerStats
 extends BaseStats
 
 
-signal equipment_changed(equipment: Item)
-
 @export var level: int = 1 : set = set_level
 @export var experience: int = 0 : set = set_experience
 @export var max_experience: int = 100 : set = set_max_experience
@@ -46,9 +44,16 @@ func set_max_experience(new_max_experience: int) -> void:
 
 func set_main_hand(new_main_hand: Item) -> void:
 	main_hand = new_main_hand
-	equipment_changed.emit(main_hand)
+
+	if not GameManager.is_game_ready:
+		await GameManager.game_ready
+
+	if main_hand == null:
+		damage_modifier = 0
+		return
+	
+	damage_modifier += main_hand.effect_strength
 
 
 func set_armor(new_armor: Item) -> void:
 	armor = new_armor
-	equipment_changed.emit(armor)

@@ -8,12 +8,11 @@ signal first_init()
 @onready var dark_bg: TextureRect = %DarkBG
 
 var first_init_ready := false
-var is_ready := false
 
 
 func _ready() -> void:
-	dark_bg.hide()
-	is_ready = true
+	dark_bg.show()
+	GameManager.is_game_ready = true
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -27,8 +26,8 @@ func _unhandled_input(event: InputEvent) -> void:
 func _on_tree_entered() -> void:
 	print("SCENE ENTERED")
 
-	if not is_ready:
-		await ready
+	if not GameManager.is_game_ready:
+		await GameManager.game_ready
 
 	anim_player.play("scene_entered")
 	await anim_player.animation_finished

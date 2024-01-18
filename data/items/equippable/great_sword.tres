@@ -6,6 +6,15 @@
 [resource]
 script = ExtResource("1_cc4fb")
 texture = ExtResource("2_qtymp")
-item_name = "Great Sword"
-item_desc = "Damage + 50"
-item_type = 1
+name = "Great Sword"
+description = "A man's romance.
+Damage + 65"
+type = 2
+consumable_effect = 1
+equippable_effect = 3
+equippable_slot = "MAIN HAND"
+attack_type = 331
+effect_strength = 65
+amount = 1
+max_amount = 1
+stackable = false

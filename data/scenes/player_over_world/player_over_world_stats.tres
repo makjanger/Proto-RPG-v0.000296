@@ -1,6 +1,7 @@
-[gd_resource type="Resource" script_class="PlayerStats" load_steps=3 format=3 uid="uid://bw6vsbn27l1q6"]
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=4 format=3 uid="uid://bw6vsbn27l1q6"]
 
 [ext_resource type="Script" path="res://data/scripts/resources/player_stats.gd" id="1_8qnsb"]
+[ext_resource type="Resource" uid="uid://c7426is8143i1" path="res://data/items/equippable/sword.tres" id="1_xi6ib"]
 [ext_resource type="Texture2D" uid="uid://rryn27gbq33x" path="res://data/sprites/knight_covered.png" id="2_wu3ql"]
 
 [resource]
@@ -8,6 +9,7 @@ script = ExtResource("1_8qnsb")
 level = 1
 experience = 0
 max_experience = 100
+main_hand = ExtResource("1_xi6ib")
 sprite = ExtResource("2_wu3ql")
 name = "Jack"
 health = 100

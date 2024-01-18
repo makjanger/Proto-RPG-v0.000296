@@ -73,19 +73,24 @@ func use(player_stats: PlayerStats) -> int:
 					player_stats.health += effect_strength
 					amount -= 1
 					return ItemConEffect.HEAL_HP
+
 				ItemConEffect.HEAL_MP:
 					return ItemConEffect.HEAL_MP
+
 				_:
 					printerr("ITEM TYPE DOES NOT MATCH ITEM EFFECT!!")
 					return 0
+
 		ItemType.EQUIPPABLE:
 			match equippable_effect:
 				ItemEquEffect.DAMAGE_MODIFIER:
 					player_stats.main_hand = self
 					print(player_stats.main_hand)
 					return 0
+
 				_:
 					return 0
+					
 		_:
 			return 0
 

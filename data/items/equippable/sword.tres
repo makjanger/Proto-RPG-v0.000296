@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Item" load_steps=3 format=3 uid="uid://c7426is8143i1"]
 
 [ext_resource type="Script" path="res://data/scripts/resources/item.gd" id="1_am8iu"]
-[ext_resource type="Texture2D" uid="uid://cutn4y8tqso0b" path="res://data/sprites/knife.png" id="2_5fpnv"]
+[ext_resource type="Texture2D" uid="uid://dsd5l35s8lgwl" path="res://data/sprites/sword.png" id="2_lb55p"]
 
 [resource]
 script = ExtResource("1_am8iu")
-texture = ExtResource("2_5fpnv")
+texture = ExtResource("2_lb55p")
 name = "Sword"
 description = "The ol' reliable.
 Damage + 40"
@@ -16,4 +16,5 @@ equippable_slot = "MAIN HAND"
 attack_type = 331
 effect_strength = 40
 amount = 1
+max_amount = 1
 stackable = false

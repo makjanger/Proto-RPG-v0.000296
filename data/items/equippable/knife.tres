@@ -7,9 +7,14 @@
 script = ExtResource("1_pjjbg")
 texture = ExtResource("2_0rn5p")
 name = "Knife"
-description = ""
-type = 1
-consumable_effect = null
-effect_strength = 1
+description = "For those who are quickwitted.
+Damage + 15"
+type = 2
+consumable_effect = 1
+equippable_effect = 3
+equippable_slot = "MAIN HAND"
+attack_type = 331
+effect_strength = 15
 amount = 1
+max_amount = 1
 stackable = false

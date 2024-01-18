@@ -2,8 +2,8 @@
 extends Node
 
 
+signal game_ready()
 signal check_stats()
-
 
 @onready var minor_health_potion: Item = preload("res://data/items/consumable/minor_healing_potion.tres")
 @onready var sword: Item = preload("res://data/items/equippable/sword.tres")
@@ -12,7 +12,12 @@ var player_party := []
 
 var player_inventory: Array[Item]
 
-var is_game_paused:= false
+var is_game_ready := false:
+    set(new_state):
+        is_game_ready = new_state
+        if is_game_ready == true:
+            game_ready.emit()          
+var is_game_paused := false
 
 
 func _ready() -> void:

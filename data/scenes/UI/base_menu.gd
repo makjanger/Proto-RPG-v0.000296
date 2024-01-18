@@ -21,8 +21,8 @@ func _ready() -> void:
 	all_buttons.append(option_button)
 	all_buttons.append(exit_button)
 
-	if not get_parent().is_ready:
-		await get_parent().ready
+	if not GameManager.is_game_ready:
+		await GameManager.game_ready
 	
 	main_ui = get_parent()
 

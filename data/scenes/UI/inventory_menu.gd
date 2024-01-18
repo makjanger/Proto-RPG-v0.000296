@@ -23,8 +23,8 @@ func _ready() -> void:
         slot.new_item_focused.connect(on_new_item_focused)
         slot.item_selected.connect(on_item_selected)
 
-    if not get_parent().is_ready:
-        await get_parent().ready
+    if not GameManager.is_game_ready:
+        await GameManager.game_ready
     
     main_ui = get_parent()
 

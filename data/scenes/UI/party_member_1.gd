@@ -27,8 +27,6 @@ func assign_stats() -> void:
 	basic_info_text.text = "%s\nLevel: %d\nEXP: %d\nNEXT: %d" % \
 	[stats.name, stats.level, stats.experience, stats.max_experience]
 
-	
-
 	health_bar.max_value = stats.max_health
 	health_bar.value = stats.health
 	health_label.text = "HP: %d/%d" % [stats.health, stats.max_health]

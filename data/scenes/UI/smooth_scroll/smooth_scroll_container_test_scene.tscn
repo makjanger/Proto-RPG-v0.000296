@@ -1,0 +1,126 @@
+[gd_scene load_steps=3 format=3 uid="uid://dlu71lmk8dpfv"]
+
+[ext_resource type="Script" path="res://data/scenes/UI/smooth_scroll/smooth_scroll_container_test_scene.gd" id="1_q2fq2"]
+[ext_resource type="Script" path="res://data/scenes/UI/smooth_scroll/SmoothScrollContainer.gd" id="2_h1dr0"]
+
+[node name="TestContainer" type="PanelContainer"]
+clip_contents = true
+custom_minimum_size = Vector2(120, 120)
+anchors_preset = -1
+offset_left = 260.0
+offset_top = 120.0
+offset_right = 380.0
+offset_bottom = 240.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_q2fq2")
+metadata/_edit_use_anchors_ = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="SmoothScrollContainer" type="ScrollContainer" parent="MarginContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("2_h1dr0")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/SmoothScrollContainer"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="RichTextLabel1" type="RichTextLabel" parent="MarginContainer/SmoothScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 2
+bbcode_enabled = true
+text = "Test Box 1"
+fit_content = true
+
+[node name="RichTextLabel2" type="RichTextLabel" parent="MarginContainer/SmoothScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 2
+bbcode_enabled = true
+text = "Test Box 2"
+fit_content = true
+
+[node name="RichTextLabel3" type="RichTextLabel" parent="MarginContainer/SmoothScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 2
+bbcode_enabled = true
+text = "Test Box 3"
+fit_content = true
+
+[node name="RichTextLabel4" type="RichTextLabel" parent="MarginContainer/SmoothScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 2
+bbcode_enabled = true
+text = "Test Box 4"
+fit_content = true
+
+[node name="RichTextLabel5" type="RichTextLabel" parent="MarginContainer/SmoothScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 2
+bbcode_enabled = true
+text = "Test Box 5"
+fit_content = true
+
+[node name="RichTextLabel6" type="RichTextLabel" parent="MarginContainer/SmoothScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 2
+bbcode_enabled = true
+text = "Test Box 6"
+fit_content = true
+
+[node name="RichTextLabel7" type="RichTextLabel" parent="MarginContainer/SmoothScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 2
+bbcode_enabled = true
+text = "Test Box 7"
+fit_content = true
+
+[node name="RichTextLabel8" type="RichTextLabel" parent="MarginContainer/SmoothScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 2
+bbcode_enabled = true
+text = "Test Box 8"
+fit_content = true
+
+[node name="RichTextLabel9" type="RichTextLabel" parent="MarginContainer/SmoothScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 2
+bbcode_enabled = true
+text = "Test Box 9"
+fit_content = true
+
+[node name="RichTextLabel10" type="RichTextLabel" parent="MarginContainer/SmoothScrollContainer/VBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 2
+bbcode_enabled = true
+text = "Test Box 10"
+fit_content = true

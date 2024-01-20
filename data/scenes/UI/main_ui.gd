@@ -79,6 +79,10 @@ func show_hide_main_ui(is_ui_visible: bool) -> void:
 			stats_menu.focused_equipment = null
 			anim_player_1.play("show_stats_menu")
 			stats_menu.current_party_member_selected.button.grab_focus()
+		
+		stats_menu.equipment_panel:
+			active_window = stats_menu
+			anim_player_1.play("hide_equipment_menu")
 	
 	accept_event()
 	return

@@ -1,0 +1,83 @@
+[gd_scene load_steps=6 format=3 uid="uid://1c543j3tw2ff"]
+
+[ext_resource type="Script" path="res://data/scenes/UI/equipment_container.gd" id="1_j5kkm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_e3k3n"]
+content_margin_left = 1.0
+content_margin_right = 1.0
+bg_color = Color(0, 0, 0, 1)
+border_width_left = 3
+border_width_right = 3
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nlrf7"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+border_width_top = 2
+border_width_bottom = 2
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ybga3"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(1, 1, 1, 1)
+border_width_top = 2
+border_width_bottom = 2
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_prpce"]
+content_margin_top = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.366595, 0.366595, 0.366594, 1)
+border_width_top = 2
+border_width_bottom = 2
+
+[node name="EquipmentContainer" type="PanelContainer"]
+custom_minimum_size = Vector2(180, 120)
+offset_left = 244.0
+offset_top = 106.0
+offset_right = 424.0
+offset_bottom = 226.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+script = ExtResource("1_j5kkm")
+
+[node name="EqControl" type="Control" parent="."]
+clip_contents = true
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EqControl"]
+layout_mode = 1
+offset_right = 180.0
+offset_bottom = 120.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EqControl/HBoxContainer"]
+unique_name_in_owner = true
+clip_contents = true
+custom_minimum_size = Vector2(180, 120)
+layout_mode = 2
+size_flags_vertical = 0
+theme_override_constants/separation = 0
+
+[node name="VScroControl" type="Control" parent="."]
+layout_mode = 2
+
+[node name="VScrollBar" type="VScrollBar" parent="VScroControl"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(8, 112)
+layout_mode = 2
+offset_left = 184.0
+offset_top = 3.0
+offset_right = 192.0
+offset_bottom = 115.0
+size_flags_horizontal = 4
+size_flags_vertical = 0
+theme_override_styles/scroll = SubResource("StyleBoxFlat_e3k3n")
+theme_override_styles/scroll_focus = SubResource("StyleBoxFlat_e3k3n")
+theme_override_styles/grabber = SubResource("StyleBoxFlat_nlrf7")
+theme_override_styles/grabber_highlight = SubResource("StyleBoxFlat_ybga3")
+theme_override_styles/grabber_pressed = SubResource("StyleBoxFlat_prpce")
+max_value = 10.0
+value = 5.0
+rounded = true
+
+[connection signal="resized" from="EqControl/HBoxContainer/VBoxContainer" to="." method="_on_v_box_container_resized"]

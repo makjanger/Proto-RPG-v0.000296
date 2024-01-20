@@ -3,10 +3,13 @@ extends Control
 
 
 @onready var grey_x := preload("res://data/sprites/grey_x.png")
-@onready var party_member_panel := preload("res://data/scenes/UI/party_member_1.tscn")
+@onready var party_member_panel_scene := preload("res://data/scenes/UI/party_member_1.tscn")
+@onready var equipment_slot_scene := preload("res://data/scenes/UI/equipment_slot_1.tscn")
 
 @onready var party_member_slots: Array = %StatsVbox.get_children()
 @onready var party_member_stats: VBoxContainer = %MemberStatsVbox
+
+@onready var equipment_panel: PanelContainer = %EquipmentContainer
 
 @onready var stats_avatar: TextureRect = %StatsAvatar
 @onready var stats_basic_info: RichTextLabel = %BasicInfoLabel
@@ -44,6 +47,7 @@ var main_ui: MainUI
 func _ready() -> void:
 	disable_equipment_input_events()
 	party_member_stats.hide()
+	equipment_panel.hide()
 
 	main_hand_button.focus_entered.connect(on_main_hand_button_focus_entered)
 	armor_button.focus_entered.connect(on_armor_button_focus_entered)
@@ -65,7 +69,7 @@ func assign_party_members() -> void:
 			member.queue_free()
 		
 		for member: BasePlayer in player_party:
-			var member_stats: PartyMemberStats = party_member_panel.instantiate()
+			var member_stats: PartyMemberStats = party_member_panel_scene.instantiate()
 			%StatsVbox.add_child(member_stats)
 
 			member_stats.party_member_focus_entered.connect(on_member_stats_button_focus_entered)
@@ -130,7 +134,24 @@ func on_member_stats_pressed() -> void:
 
 
 func _on_main_hand_button_pressed() -> void:
-	pass
+	var player_inventory: Array[Item] = GameManager.player_inventory
+	var equipment_panels: Array = equipment_panel.equipment_container.get_children()
+
+	if equipment_panels.size() > 0:
+		for child in equipment_panels:
+			equipment_panel.equipment_container.remove_child(child)
+			child.queue_free()
+
+	for item: Item in player_inventory:
+		if item.type == item.ItemType.EQUIPPABLE:
+			var equipment_slot: EquipmentSlot = equipment_slot_scene.instantiate()
+			equipment_slot.item = item
+			equipment_panel.equipment_container.add_child(equipment_slot)
+	
+	
+	main_ui.anim_player_1.play("show_equipment_menu")
+	equipment_panel.on_equipment_container_shown()
+	main_ui.active_window = equipment_panel
 
 
 func _on_armor_button_pressed() -> void:

@@ -1,0 +1,68 @@
+[gd_scene load_steps=8 format=3 uid="uid://trwm8logxvi2"]
+
+[ext_resource type="Script" path="res://data/scenes/UI/equipment_slot_1.gd" id="1_q1i6k"]
+[ext_resource type="Texture2D" uid="uid://b8wb88d41nnis" path="res://data/sprites/grey_x.png" id="2_ncgh1"]
+[ext_resource type="Texture2D" uid="uid://d3kk6fyqfjk8u" path="res://data/sprites/ItemBorder.png" id="3_7jo72"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oi4tv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_gpx71"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3hkio"]
+content_margin_left = 3.0
+content_margin_top = 3.0
+content_margin_right = 3.0
+content_margin_bottom = 3.0
+texture = ExtResource("3_7jo72")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_1kniy"]
+font_size = 12
+
+[node name="EquipmentSlot1" type="PanelContainer"]
+custom_minimum_size = Vector2(32, 32)
+offset_right = 121.0
+offset_bottom = 40.0
+size_flags_vertical = 0
+theme_override_styles/panel = SubResource("StyleBoxEmpty_oi4tv")
+script = ExtResource("1_q1i6k")
+disable_tex = ExtResource("2_ncgh1")
+
+[node name="EquipmentButton" type="Button" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_styles/normal = SubResource("StyleBoxEmpty_gpx71")
+theme_override_styles/hover = SubResource("StyleBoxEmpty_gpx71")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_gpx71")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_gpx71")
+theme_override_styles/focus = SubResource("StyleBoxTexture_3hkio")
+action_mode = 0
+text = "Weapon Name"
+alignment = 0
+expand_icon = true
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+visible = false
+layout_mode = 2
+theme_override_constants/margin_left = 3
+theme_override_constants/margin_top = 3
+theme_override_constants/margin_right = 3
+theme_override_constants/margin_bottom = 3
+
+[node name="AmountLabel" type="Label" parent="MarginContainer"]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "x99"
+label_settings = SubResource("LabelSettings_1kniy")
+horizontal_alignment = 2

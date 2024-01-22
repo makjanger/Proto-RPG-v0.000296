@@ -8,7 +8,7 @@ func enter(_obj: Variant = null) -> void:
 		await master_node.anim_player.animation_finished
 
 		if BattleManager.is_enemy_turn \
-		or !master_node.is_active_character:
+		or not master_node.is_active_character:
 			transition_to.emit(self, "AwaitState")
 		elif master_node.is_active_character:
 			transition_to.emit(self, "IdleState")

@@ -31,6 +31,9 @@ var battle_ended := false
 var in_battle_result := false
 var in_animation := false
 
+var previous_level: int
+var current_level: int
+
 
 func _ready() -> void:
     BattleManager.is_battle_over = false
@@ -125,18 +128,18 @@ func _on_turn_end() -> void:
                 
                 member_battle_result.level_label.text = "LEVEL: %d" % \
                 [member.stats.level]
-
-                member_battle_result.exp_label.text = "EXP: %d/%d" % \
-                [member.stats.experience, member.stats.max_experience]
                 
                 member_battle_result.level = member.stats.level
                 member_battle_result.exp_bar.value = member.stats.experience
                 member_battle_result.max_exp = member.stats.max_experience
+                member_battle_result.exp_label.text = "EXP: %d/%d" % \
+                [member.stats.experience, member.stats.max_experience]
                 member_battle_result.index = indexer
 
                 indexer += 1
-                
-                member.stats.experience += BattleManager.total_exp
+
+                previous_level = member.stats.level
+                member.stats.experience = BattleManager.total_exp
 
                 members.append(member_battle_result)
             
@@ -153,7 +156,7 @@ func _on_turn_end() -> void:
             anim_player.play("battle_end")
             await anim_player.animation_finished
             await get_tree().create_timer(0.2).timeout
-            BattleManager.end_battle()
+            BattleManager.battle_end.emit()
             return
     
     var character = all_characters[0]
@@ -188,7 +191,7 @@ func on_player_character_level_up(member_battle_result: PartyMemberBattleResult)
     
     member_battle_result.button_confirmed.emit(member.stats.exp_remainder)
     
-    member.stats.experience += member.stats.exp_remainder
+    member.stats.experience = member.stats.exp_remainder
 
     if member.stats.exp_remainder == 0:
         await member_battle_result.animation_finished
@@ -207,18 +210,24 @@ func _unhandled_input(event: InputEvent) -> void:
                 while member.stats.exp_remainder > 0:
                     member.stats.experience += member.stats.exp_remainder
                 
-                level = member.stats.level
+                current_level = member.stats.level
+                prints("current_level =", current_level)
+
+                level = current_level - previous_level
+                prints("level =", level)
+
                 experience = member.stats.experience
                 max_exp = member.stats.max_experience
 
             for member_battle_result: PartyMemberBattleResult in members:
                 member_battle_result.button_confirmed.emit(0)
                 for i in level:
-                    if i > 1: i = 1
-                    member_battle_result.level += i
+                    member_battle_result.level += 1
                 
                 member_battle_result.max_exp = max_exp
                 member_battle_result.exp_bar.value = experience
+                # member_battle_result.exp_label.text = "EXP: %d/%d" % \
+                # [experience, max_exp]
             
             in_battle_result = true
             in_animation = false

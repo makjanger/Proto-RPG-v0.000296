@@ -135,12 +135,10 @@ func on_member_stats_pressed() -> void:
 
 func _on_main_hand_button_pressed() -> void:
 	var player_inventory: Array[Item] = GameManager.player_inventory
-	var equipment_panels: Array = equipment_panel.equipment_container.get_children()
 
-	if equipment_panels.size() > 0:
-		for child in equipment_panels:
-			equipment_panel.equipment_container.remove_child(child)
-			child.queue_free()
+	for child in equipment_panel.equipment_container.get_children():
+		equipment_panel.equipment_container.remove_child(child)
+		child.queue_free()
 
 	for item: Item in player_inventory:
 		if item.type == item.ItemType.EQUIPPABLE:

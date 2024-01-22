@@ -8,6 +8,7 @@
 size = Vector2(32, 20)
 
 [node name="PlayerOverWorld" type="CharacterBody2D" groups=["active_player_party"]]
+motion_mode = 1
 script = ExtResource("1_t6lej")
 stats = ExtResource("2_wsvyx")
 player_battle = "res://data/scenes/player/player.tscn"

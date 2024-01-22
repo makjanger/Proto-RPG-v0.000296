@@ -365,7 +365,6 @@ intelligence = 1
 [sub_resource type="CanvasTexture" id="CanvasTexture_wra58"]
 
 [node name="Battle" type="Node2D"]
-process_mode = 3
 script = ExtResource("1_jrgxh")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

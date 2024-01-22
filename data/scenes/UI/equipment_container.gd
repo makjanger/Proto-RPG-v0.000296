@@ -38,10 +38,6 @@ func on_equipment_focused(slot: EquipmentSlot, item: Item) -> void:
         var height_gap := roundi((slot.position.y + 32) - panel_height)
 
         if tween != null:
-            print()
-            prints("current_selection =", current_selection)
-            prints("current_scroll =", current_scroll)
-            print()
             equipment_container.position.y = current_selection
             v_scroll_bar.value = current_scroll
 
@@ -49,10 +45,6 @@ func on_equipment_focused(slot: EquipmentSlot, item: Item) -> void:
         current_scroll = roundi(v_scroll_bar.value) + height_gap
 
         panel_height += height_gap
-
-        # equipment_container.position.y -= height_gap
-
-        # v_scroll_bar.value += height_gap
         
         tween = create_tween()
 
@@ -61,10 +53,6 @@ func on_equipment_focused(slot: EquipmentSlot, item: Item) -> void:
         
         tween.parallel().tween_property(v_scroll_bar, "value", current_scroll, 0.1)\
         .set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
-
-        prints("height_gap =", height_gap)
-        prints("v_scroll_bar.value =", v_scroll_bar.value)
-        prints("slot.position.y + 32 =", slot.position.y + 32)
 
         return
     
@@ -72,10 +60,6 @@ func on_equipment_focused(slot: EquipmentSlot, item: Item) -> void:
         var height_gap := roundi(slot.position.y - (panel_height - 120))
 
         if tween != null:
-            print()
-            prints("current_selection =", current_selection)
-            prints("current_scroll =", current_scroll)
-            print()
             equipment_container.position.y = current_selection
             v_scroll_bar.value = current_scroll
 
@@ -84,10 +68,6 @@ func on_equipment_focused(slot: EquipmentSlot, item: Item) -> void:
 
         panel_height += height_gap
 
-        # equipment_container.position.y -= height_gap
-
-        # v_scroll_bar.value += height_gap
-        
         tween = create_tween()
 
         tween.tween_property(equipment_container, "position", Vector2(0, current_selection), 0.1)\
@@ -95,10 +75,6 @@ func on_equipment_focused(slot: EquipmentSlot, item: Item) -> void:
         
         tween.parallel().tween_property(v_scroll_bar, "value", current_scroll, 0.1)\
         .set_trans(Tween.TRANS_QUART).set_ease(Tween.EASE_OUT)
-
-        prints("v_scroll_bar.value =", v_scroll_bar.value)
-        prints("slot.position.y - 32 =", slot.position.y - 32)
-
         return
 
 

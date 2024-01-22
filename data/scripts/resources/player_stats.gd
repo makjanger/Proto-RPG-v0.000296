@@ -29,7 +29,7 @@ func set_experience(new_experience: int) -> void:
 	if experience == new_experience: return
 
 	experience += new_experience
-
+	
 	if experience >= max_experience:
 		exp_remainder = experience - max_experience
 		experience = 0

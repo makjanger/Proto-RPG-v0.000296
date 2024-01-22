@@ -39,8 +39,8 @@ enum ItemEquType { MELEE = 331, RANGE = 332 }
 func set_amount(new_amount: int) -> void:
 	amount = new_amount
 
-	if amount > 1:
-		stackable = true
+	# if amount > 1:
+	# 	stackable = true
 
 	property_changed.emit("item_amount")
 
@@ -55,8 +55,8 @@ func set_max_amount(new_max_amount: int) -> void:
 func set_stackable(new_stackable: bool) -> void:
 	stackable = new_stackable
 
-	if not stackable:
-		amount = 1
+	# if not stackable:
+	# 	amount = 1
 
 	property_changed.emit("item_stackable")
 

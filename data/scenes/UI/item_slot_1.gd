@@ -24,11 +24,11 @@ signal item_selected(item: Item)
 			texture = disable_tex
 			button.focus_mode = Control.FOCUS_NONE
 
-
 @export var item: Item:
 	set(new_item):
 		item = new_item
 		if item:
+			setup_item_slot()
 			texture = item.texture
 			amount_label.show()
 			set_item_amount()
@@ -37,18 +37,16 @@ signal item_selected(item: Item)
 			texture = null
 			amount_label.hide()
 
-
-
 var texture: Texture:
 	set(new_texture):
 		if not is_ready: await ready
 		
-		if new_texture == null:
-			texture = null
-			sprite.texture = texture
+		texture = new_texture
+	
+		if not enable:
+			sprite.texture = disable_tex
 			return
 		
-		texture = new_texture
 		sprite.texture = texture
 
 var is_ready: bool = false
@@ -58,7 +56,15 @@ func _ready() -> void:
 	amount_label.hide()
 	size = Vector2(40, 40)
 
+	is_ready = true
+
+
+func setup_item_slot() -> void:
 	if item:
+		if item.property_changed.is_connected(item_property_changed):
+			printerr("ITEM IS CONNECTED!")
+			return
+		
 		item.property_changed.connect(item_property_changed)
 		set_item_amount()
 		set_item_stackable()
@@ -67,8 +73,6 @@ func _ready() -> void:
 		button.button_down.connect(on_button_down)
 		button.focus_entered.connect(on_button_focus_entered)
 		button.focus_exited.connect(on_button_focus_exited)
-
-	is_ready = true
 
 
 func item_property_changed(property_name: String) -> void:

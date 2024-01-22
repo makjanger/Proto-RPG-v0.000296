@@ -23,6 +23,7 @@ func calculate_damage() -> int:
 
 func take_damage(damage: int) -> void:
 	set_health(stats.health - damage)
+	BattleManager.pop_up_damage(self, damage)
 	state_machine.take_damage()
 
 

@@ -35,13 +35,21 @@ func _on_resume_button_pressed() -> void:
 func _on_inventory_button_pressed() -> void:
 	print("inventory_button pressed.")
 	main_ui.active_window = main_ui.inventory_menu
+	
+	var player_inventory: Array[Item] = GameManager.player_inventory
+	var item_index := 0
+
+	for item_slot: ItemSlot in main_ui.inventory_menu.item_slots:
+		item_slot.item = null
 
 	for item_slot: ItemSlot in main_ui.inventory_menu.item_slots:
 		if item_slot.item: continue
 		if not item_slot.enable: continue
 		if not GameManager.player_inventory: continue
+		if item_index == player_inventory.size(): continue
 
-		item_slot.item = GameManager.player_inventory.pop_front()
+		item_slot.item = player_inventory[item_index]
+		item_index += 1
 
 	main_ui.anim_player_1.play("show_inventory_menu")
 	main_ui.inventory_menu.item_slots[0].button.grab_focus()
